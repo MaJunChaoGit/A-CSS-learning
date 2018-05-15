@@ -1,0 +1,117 @@
+/* 1.通配符选择器 */
+*{
+	margin: 0;
+	padding: 0;
+}
+/* .demo *{
+	border: 1px solid blue;
+} */
+/* ------------------------ */
+
+
+/* 2.元素选择器 */
+li {
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	width: 20px;
+	border-radius: 10px;
+	text-align: center;
+	background: #f36;
+	color: green;
+	margin: 5px;
+	list-style: none;
+}
+/* ------------------------ */
+
+
+/* 3.类选择器 */
+.demo {
+	width: 322px;
+	border: 1px solid #ccc;
+}
+.clearfloat{
+	clear: both;
+}
+/* .important{
+	color: yellow;
+	font-weight: blod;
+}
+p.item{
+	color: red;
+}
+
+.important{
+	font-weight: bold;
+}
+.active{
+	background-color: lime;
+	color: green;
+}
+.items{
+	color: #fff;
+	background-color: #000;
+}
+.important.items{
+	background-color: #ccc;
+}
+.first.last{
+	color: blue;
+}  */
+/* ------------------------ */
+
+
+/* 4.id选择器 */
+/* #first{
+	background-color: lime;
+	color: black;
+}
+#last{
+	background-color: black;
+	color: lime;
+} */
+/* ------------------------ */
+
+
+/* 5.后代选择器 */
+/* .demo li {
+	color: blue;
+} */
+/* ------------------------ */
+
+
+/* 6.子元素选择器 */
+/* ul> li{
+	background-color:green;
+	color: yellow;
+} */
+/* ------------------------ */
+
+
+/* 7.相邻兄弟元素选择器 */
+/* li+li{
+	background-color: green;
+	color: yellow;
+	border: 1px solid #ccc;
+} */
+/* .active+li{
+	background-color:green;
+	border: 1px solid #ccc;
+	color: yellow;
+} */
+/* ------------------------ */
+
+
+/* 8.通用兄弟选择器 */
+/* .active~li{
+	background-color:green;
+	border: 1px solid #ccc;
+	color: yellow;
+} */
+/* ------------------------ */
+
+
+/* 9.群组选择器 */
+.first, .last {
+	background: green;color: yellow; border: 1px solid #ccc;
+}

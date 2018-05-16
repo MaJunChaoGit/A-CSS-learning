@@ -1,0 +1,210 @@
+.demo{
+	widows: 300px;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+.demo li{
+	border: 1px solid #ccc;
+	padding: 2px;
+	float:left;
+	margin-right: 4px;
+	list-style-type: none;
+}
+.demo a{
+	float: left;
+	display: block;
+	height: 20px;
+	width: 20px;
+	line-height: 20px;
+	border-radius: 10px;
+	text-align: center;
+	background-color: #f36;
+	color: green;
+	text-decoration: none;
+}
+/*一.两种伪类的语法*/
+
+/* 1.E:pseudo-class {property:value} */
+/*a:link {
+	color: red;
+}*/
+/* ------------------------ */
+
+/*2.E.class:pseudo-class{property:value}*/
+/*a.selected:hover{
+	color: blue;
+}*/
+/* ------------------------ */
+
+/*二.动态伪类*/
+
+/*链接没有被访问时前景色为灰色*/
+/*.demo a:link{
+	color: grey; 
+}*/
+/*链接被访问过后前景色为黄色*/
+/*.demo a:visited{
+	color: yellow; 
+}*/
+/*鼠标悬浮在链接上时前景色为绿色*/
+/*.demo a:hover{
+	color: green; 
+}*/
+/*鼠标点中激活链接那一下前景色为蓝色*/
+/*.demo a:active{
+	color: blue; 
+}*/
+/* ------------------------ */
+
+
+/*三.UI元素状态伪类*/
+
+/*input[type="text"]:disabled{
+	border: 1px solid #999;
+	background-color: #fefefe;
+}*/
+/* ------------------------ */
+
+
+/*四.CSS3的:nth选择器*/
+
+/*1、:first-child*/
+/*.demo li:first-child{
+	background-color: green;
+	border: 1px dotted blue;
+}
+.demo li.first {
+	background: green; border: 1px dotted blue;
+}
+*/
+/* ------------------------ */
+
+
+/*2、:last-child*/
+/*.demo li:last-child{
+	background-color: green;
+	border:2px dotted blue;
+}*/
+/*.demo li.last {
+	background: green; border: 2px dotted blue;
+}*/
+/*3、:nth-child()*/
+
+/*.demo li:nth-child(3){
+	background-color: lime;
+}*/
+
+
+/*.demo li:nth-child(n) {background: lime;} 
+等于
+.demo li {background: lime;}*/
+
+
+/*.demo li:nth-child(2n){
+	background-color: lime;
+}
+等于
+.demo li:nth-child(even){
+	background-color: lime;
+}*/
+
+/*.demo li:nth-child(2n-1){
+	background-color: lime;
+}
+等于
+.demo li:nth-child(odd){
+	background-color: lime;
+}*/
+
+/*.demo li:nth-child(n+5){
+	background-color: lime;
+}*/
+
+/*.demo li:nth-child(-n+5){
+	background-color: lime;
+}*/
+
+/*.demo li:nth-child(4n+1){
+	background-color: lime;
+}*/
+
+/*4、:nth-last-child()*/
+/*.demo li:nth-last-child(4){
+	background-color: lime;
+}*/
+
+/*.demo li:nth-last-child(2n){
+	background-color: lime;
+}
+.demo li:nth-last-child(even){
+	background-color: lime;
+}
+等于
+.demo li:nth-child(2n+1) {background: lime;}
+.demo li:nth-child(2n-1) {background: lime;}
+.demo li:nth-child(odd) {background: lime;}*/
+
+
+/*.demo li:nth-last-child(2n+1) {background: lime;}
+.demo li:nth-last-child(2n-1) {background: lime;}
+.demo li:nth-last-child(odd) {background: lime;}
+等于：
+.demo li:nth-child(2n) {background: lime;}
+.demo li:nth-child(even) {background: lime;}
+*/
+
+/*5、:nth-of-type*/
+/*.demo p:nth-of-type(even){
+	background-color: lime;
+}
+
+6、:nth-last-of-type
+.demo p:nth-last-of-type(even){
+	background-color: lime;
+}*/
+
+/*7、:first-of-type和:last-of-type*/
+/*.demo li:first-of-type{
+	background-color: lime;
+}
+.demo li:last-of-type{
+	background-color: lime;
+}*/
+
+/*8、:only-child和:only-of-type*/
+/*.demo .post p{
+	background-color:lime;
+}
+
+.demo .post p:only-child{
+	background-color: red;
+}
+*/
+/*p:only-of-type{
+	background-color: red;
+}*/
+
+/*9、:empty*/
+/*p:empty{
+	display: none;
+}*/
+
+/*四、否定选择器（:not）*/
+/*input:not([type="submit"]){
+	border: 1px solid red;
+}
+*/
+
+
+/*五、伪元素*/
+/*p::first-line {font-weight:bold;}
+div::first-letter {font-size: 56px;float:left;margin-right:3px;}*/
+.clearfix:before,
+.clearfix:after {
+     content: ".";
+     display: block;
+     height: 0;
+     visibility: hidden;
+  }
+ .clearfix:after {clear: both;}
+ .clearfix {zoom: 1;

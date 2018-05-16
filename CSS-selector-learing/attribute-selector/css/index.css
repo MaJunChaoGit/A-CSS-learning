@@ -1,0 +1,96 @@
+.demo {
+	width: 300px;
+	border: 1px solid #ccc;
+	padding:10px;
+}
+
+.demo a {
+	float: left;
+	display: block;
+	height: 20px;
+	width: 20px;
+	border-radius: 10px;
+	text-align: center;
+	background-color: #f36;
+	color:green;
+	margin-right: 5px;
+	text-decoration: none;
+}
+
+/* 1.E[attr] */
+/*.demo a[id]{
+	background-color: blue;
+	font-weight: bold;
+	color: yellow;
+}
+.demo a[href][title]{
+	background-color: yellow;
+	color:green;
+}*/
+/* ------------------------ */
+
+
+/* 2.Ｅ[attr="value"]*/
+/*.demo a[id="first"]{
+	background-color: blue;
+	color: yellow;
+	font-weight: bold;
+}
+.demo a[href="http://www.w3cplus.com"][title]{
+	background-color: yellow;
+	color: green;
+}
+.demo a[class="links"]{
+	color: red;
+}*/
+/*.demo a[class="links item"]{
+	color: red;
+}*/
+/* ------------------------ */
+
+
+/* 3.E[attr~="value"]*/
+/*.demo a[title~="website"]{
+	background-color: orange;
+	color: green;
+}*/
+/*.demo a[title="website"]{
+	background-color: orange;
+	color: green;
+}*/
+/* ------------------------ */
+
+/* 4.E[attr^="value"]*/
+/*.demo a[href^="http://"]{
+	background-color: orange;
+	color: green;
+}
+.demo a[href^="mailto:"]{
+	background-color: green;
+	color: orange;
+}*/
+/* ------------------------ */
+
+
+/* 5.E[attr$="value"]*/
+/*.demo a[href$="png"]{
+	background-color: orange;
+	color: green;
+}*/
+/* ------------------------ */
+
+
+/* 6.E[attr*="value"]*/
+/*.demo a[title*="site"]{
+	background-color: black;
+	color: white;
+}*/
+/* ------------------------ */
+
+
+/*7.E[attr|="value"]*/
+.demo a[lang|="zh"]{
+	background-color: grey;
+	color: yellow;
+}
+/* ------------------------ */

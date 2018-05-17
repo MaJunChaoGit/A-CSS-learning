@@ -1,4 +1,4 @@
-/* 1. Data Attribute (unqualified) */
+/* 1. Data Attribute (unqualified)  */
 
 /* [data-select]{
 	color: red;
@@ -28,8 +28,8 @@
 
 
 /* 5. Multiple Data Attributes (qualified with values) */
-
-/* div[data-div="layer1"] a[data-select="link"] {
+/* 
+div[data-div="layer1"] a[data-select="link"] {
 	color: red;
 }
  */
@@ -59,8 +59,8 @@
 
 /* .tagUl .link {
 	color: red;
-}
- */
+} */
+
 
 /* 9. Multiple classes (using child selector) */
 	
@@ -130,13 +130,13 @@
 /* div ul a:after {
 	content: "after";
 	color: red;
-}
-	 */
+} */
+	
 
 
 /* 20. Single class */
 	
-.link {
+/*  .link {
 	color: red;
 }
-	
+	 */

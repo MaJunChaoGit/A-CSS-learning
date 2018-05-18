@@ -1,8 +1,11 @@
 
 
- <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> 原文地址 
+**非常感谢原文作者的分享,个人觉得非常有用.所以将原文进行翻译,如果有错误,麻烦回复指出**
+   <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> 附上原文地址 
 
-###什么是高效的CSS?不同的选择器对性能的影响如何?是花括号里的属性重要还是选择器重要?.
+[TOC]
+
+##什么是高效的CSS?不同的选择器对性能的影响如何?是花括号里的属性重要还是选择器重要?.
 
 我们在做优化网站的性能时,CSS的优化往往是最后的选择.因为有更多的优化方案可以带来比CSS优化更显著更快速的收益.
 然而,对一个CSS库进行优化却可以为用户带来更好的体验
@@ -11,7 +14,7 @@
 
 但是除了引用Nicole Sullivand的文章来支持我的假设,选择器不同并不重要，在这之前我从来没有真正测试过这个理论;因为我的天赋不足和缺乏完美的分析头脑使我无法尝试,我只能进行一些简单的尝试
 
-##Testing selector speed
+##选择器测速
 
 ```
 <script type="text/javascript">
@@ -131,117 +134,56 @@
 | 一半的样式 |      51.6 |   142.8    |   65.4   | 358.6 | 1412.4    |
 
 
-这提供了一些有趣的数据。例如，在完成这个测试时，Firefox的速度比它最慢的选择器测试（test 6）慢了1.7倍。Android 4.3比它最慢的选择器测试慢了1.2倍（测试6）。Internet Explorer比它最慢的选择器慢了2.5倍。
-
 当一半的样式被删除时，你可以看到Firefox的东西下降了很多（大约1500行）。在这一点上，Android设备的速度也接近于最慢的选择器的速度。
 
-Removing unused styles
+##删除未使用的样式
 
-这种恐怖场景对你来说是不是很熟悉？具有各种选择器的巨大CSS文件（通常使用的选择器甚至都不工作），更具体的选择器的块更大，更深入，不适用的前缀，杂乱的id，文件大小为50-80KB（有时更多）。
+这种恐怖场景对你来说是不是很熟悉？具有各种选择器的巨大的CSS文件（通常使用的选择器甚至都不工作），更具体的选择器的块更大，更深入，不适用的前缀，杂乱的id，文件大小为50-80KB（有时更多）。
 
-如果您正在处理一个有一个像这样的大胖CSS文件的代码库，那么没有人确切地知道所有的样式实际上是干什么的——在选择器被使用之前，请查看CSS优化。
+如果您正在处理一个有一个像这样臃肿的CSS文件的代码库，那么没有人确切地知道所有的样式实际上是干什么的
 
-处理这个问题似乎比对所使用的选择器吹毛求疵更有意义。它将产生双倍的影响;用户下载的代码更少，但对UA解析的代码也更少——这是一个速度提升。
+`处理这个问题似乎比对所使用的选择器吹毛求疵更有意义。它将产生双倍的影响;用户下载的代码更少,这是一个速度提升。`
 
-同样，这对CSS的实际性能也没有帮助
+**但是同样，这对CSS的实际性能也没有帮助**
 
-Performance inside the brackets
+##括号内的性能
 
-我运行的最后一个测试是用一堆“昂贵”的属性和值来访问页面
+我运行的最后一个测试是配置一堆“昂贵”的CSS来访问页面
 
-    .link {
-        background-color: red;
-        border-radius: 5px;
-        padding: 3px;
-        box-shadow: 0 5px 5px #000;
-        -webkit-transform: rotate(10deg);
-        -moz-transform: rotate(10deg);
-        -ms-transform: rotate(10deg);
-        transform: rotate(10deg);
-        display: block;
-    }
+```
+.link {
+     background-color: red;
+     border-radius: 5px;
+     padding: 3px;
+     box-shadow: 0 5px 5px #000;
+     -webkit-transform: rotate(10deg);
+     -moz-transform: rotate(10deg);
+     -ms-transform: rotate(10deg);
+     transform: rotate(10deg);
+     display: block;
+ }
+```
 
-以下是结果
+以下是结果:
 
-  Test            	Chrome 34	Firefox 29	Opera 19	IE9  	Android 4
-  Expensive Styles	65.2     	151.4     	65.2    	259.2	1923     
+| Test     | Chrome 34 | Firefox 29 | Opera 19 |  IE9  | Android 4 |
+| :------- | --------: | :--------: | :------: | :---: | --------- |
+| " 昂贵的样式" |      65.2 |   151.4    |   65.2   | 259.2 | 1923      |
 
-在这里，所有的浏览器都至少比最慢的选择器测试慢了1.5倍，而Android设备比最慢的选择器测试慢了1.3倍，但这还不是全部。 试试看滚动浏览器!重绘样式会让你的电脑哭泣
+在这里，所有的浏览器都至少比最慢的选择器测试慢了1.5倍，而Android设备比最慢的选择器测试慢了1.3倍，但这还不是全部。 试试看滚动浏览器,页面的样式重绘会让你的电脑崩溃.
 
-实际上,我们在括号里的属性才是真正影响性能的。这是有理由的，一直滚动一个昂贵的需要重绘的并且布局一直在变化的页面将会给电脑带来压力。	 Nice HiDPI screen? It will be even worse as the CPU/GPU strains to get everything re-painted to screen in under 16ms.
+实际上,我们在括号里的属性才是真正影响性能的。这是有理由的，一直滚动一个拥有"昂贵"的,不停需要重绘的并且布局一直在变化的页面将会给电脑带来压力。
 
-With the expensive styles test, on the 15" Retina MacBook Pro I tested on, the paint time shown in continuous paint mode in Chrome never dropped below 280ms (and remember, we are aiming for sub–16ms). To put that in perspective for you, the first selector test page, never went above 2.5ms. That wasn’t a typo. Those properties created a 112X increase in paint time. Holy ’effing expensive properties Batman! Indeed Robin. Indeed.
+##什么是"昂贵"的样式?
 
-What properties are expensive?
-
-一个“昂贵”的属性/值配对是我们可以非常自信的一个，它会让浏览器在重新绘制屏幕时（例如在滚动屏幕上）挣扎。
-
-我们怎么知道什么是“昂贵”的风格？值得庆幸的是，我们可以将常识应用到这一点上，并对如何对浏览器征税有一个很好的想法。任何需要浏览器在绘图前进行操作/计算的东西都将更加昂贵。例如，框阴影、border-radius、透明度（浏览器必须计算如下所示的内容）、转换和性能杀手，如CSS过滤器——如果性能是您的优先级，那么任何类似的东西都是您最大的敌人
-
-Juriy “kangax” Zaytsev did a fantastic blog post also covering CSS performance back in 2012. He was using the various developer tools to measure performance. He did a particularly good job of showing the difference that various properties had on performance. If this kind of thing interests you then that post is well worth your time.
+我们怎么知道什么是“昂贵”的样式？值得庆幸的是，我们可以将平时的经验应用到这一点上.任何需要浏览器在绘图前进行操作/计算的东西都将更加昂贵。例如，框阴影、圆角、透明度、过度之类的样式——如果性能是您的优先级，那么任何类似的东西都是您最大的敌人
 
 
-
-Conclusion
-
-在现代浏览器中使用的选择器的出汗是徒劳的;大多数选择方法都是如此之快，以至于不值得花太多时间在上面。此外，在不同的浏览器中，最慢的选择器是什么。请在这里查看最后以加速您的CSS。
-
-过度使用的样式可能会比你选择的任何选择器花费更多，性能上更有价值，所以要在那里整理一下。在页面上未使用或剩余的3000行甚至都不常见。把所有的风格都组合成一种非常大的单一风格是很常见的。css，如果您的站点/web应用程序的不同区域可以有不同的（附加的）样式表（依赖图样式），那可能是更好的选择
-
-如果你的CSS已经被许多不同的作者添加到时间里，那么看看像UnCSS这样的工具来自动删除样式——手工完成这个过程并不好玩！
-
-在使用的选择器中不会赢得高性能CSS的战斗，它将通过明智地使用财产和价值赢得胜利。
-
-把东西涂在屏幕上，这显然很重要，但当用户与之交互时，页面的感觉也是如此。首先寻找昂贵的财产和价值对（Chrome的连续重绘模式是你的朋友），它们很可能会带来最大的收益。
-
-    option = {
-        title: {
-            text: '折线图堆叠'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            data:['IE11','Google Chrome 65','Mozilla Firefox 55']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                name:'IE11',
-                type:'line',
-                data:[151,152.8,107.1,114,106.4,131.9,103.5,108.6,121.8,124.4,104.3,97.7,107.4,104.4,106.1,114.7,103.4,101.4,106.3,118.6]
-            },
-            {
-                name:'Google Chrome 65',
-                type:'line',
-                data:[50.4,51.7,49.6,48.9,50.7,57.5,47.1,50,48.3,49.3,50.4,50.1,48.6,52,49.5,50.3,50.1,49.8,60.9,49.1]
-            },
-            {
-                name:'Mozilla Firefox 55',
-                type:'line',
-                data:[209.5, 198,193.9,205.9,209.2,204.7,195.4,200.3,204.3,200.6,199.9,209.2,116.4,93.5,98.3,104.7,99.6,103.8,106.8,109.8]
-            }
-        ]
-    };
-
+##结论
+1. **在现代浏览器中大多数的选择器速度都非常快,因此使用不同的选择器来优化性能是没有必要的;**
+2. **过度使用的样式与从未使用的样式所占比例比选择任何选择器消耗的性能更多.所以将CSS库进行拆分,那可能是更好的选择;**
+3. **如果你的CSS库由多人编写,那么可以使用UnCSS这样的工具来自动删除未被使用的样式;**
+4. **明智的使用花括号内的属性才能赢的性能上的收益.在优化时,首先寻找"昂贵"的样式,会为你和用户带来最大的收益**
 
 
 

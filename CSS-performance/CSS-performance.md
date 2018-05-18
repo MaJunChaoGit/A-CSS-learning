@@ -12,6 +12,8 @@ http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/
 
 但是除了引用Nicole Sullivand的文章来支持我的假设,选择器不同并不重要，我从来没有真正测试过这个理论;我的天赋不足和缺乏完美的分析头脑使我无法尝试,下面让我们来进行一些简单的尝试
 
+# Testing selector speed
+
 ```javascript
 <script type="text/javascript">
     ;(function TimeThisMother() {
@@ -71,6 +73,177 @@ http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/
 |      | 最大的差异                                    | 36    | 20.4             | 34                 |
 |      | 最慢的选择器序号                                 | 19    | 1                | 19                 |
 
-然后经过我多次的测试,尽管差异值彼此差不多,但是还是无法从每次得到的结果中推断出哪个选择器最慢.
+## What does this mean?
 
-不过我们可以确定的是,使用类选择器,不仅在和其他选择器拥有一样的
+然后经过我多次的测试,尽管差异值彼此相差不多,但是还是无法从每次得到的结果中推断出哪个选择器最慢.
+
+不过我们可以确定的是,使用类选择器,不仅可以和选择其他选择器拥有一样的速度拥有一样的运行速度，而且还可以使你的CSS更具模块化的特征.
+
+对于我们来说，上述测试中即使拥有1000个DOM，最快与最慢的选择器之间差别也并不是很大，它已经证实了担心使用何种选择器类型是一件浪费时间的事情，因为我们还有更加重要的事情去做
+
+在原文博客中 ，作者与WebKit工程师本杰明普尔的探讨是非常有趣的,下面引用了一些信息
+
+>对于加载一个页面来说，有太多其他的因素参与，而CSS的加载只是其中的一小部分。
+>
+>咱们以测试10的 [class^="wrap"] 选择器为例
+>
+>~10% 的时间用于光栅化图元
+>~21% 的时间用于元素放置布局
+>~48% 的时间用于解析与DOM树的构建
+>~8% 的时间用于CSS解析
+>~5% 的时间用于收集样式 – 而这一部分才是我们应该测试的地方
+>
+>剩下来的时间分布在一些小的函数上
+>
+>通过上面的测试，假设我们最快的选择器的速度为100ms。其中，5 ms将被用于收集风格。
+>
+>假设下载另外一个选择器的速度比第一个选择器慢3倍，那么它的加载时间就应该为110ms.
+>
+>那么,在测试报告中应该为300%的差异，而不是现在的10%
+>
+>基于这一点，原文作者回答说，虽然我理解本杰明所指的是什么，但我的测试只是为了说明我在这篇文章中的观点 —— 在其他条件不变的情况下，不同的选择器的使用并不会影响性能
+>
+>本杰明花时间回答了更多的细节：
+>
+>我完全同意优化选择器一无是处，但是我跟你的原因并不相同
+>
+>通过检查选择器，几乎不可能预测给定选择器的最终性能影响。在引擎中，选择器被重新排序、分割、收集和编译。要知道给定选择器的最终性能，您必须知道选择器是如何收集的，它是如何编译的，最后是DOM树是什么样子的
+>
+>所有这些在不同的引擎之间是非常不同的，这使得整个过程更加难以预测。
+>
+>我反对web开发人员优化选择器的第二个理由是，它们可能会使事情变得更糟。关于选择器的错误信息比正确的浏览器兼容信息要多。想要把它做好几乎不可能
+>
+>然而在开发中，人们会发现CSS的性能问题，并开始一个接一个地删除样式规则，直到问题解决。我认为这是正确的做法，这很容易，而且会带来正确的结果。
+
+# Cause and effect
+
+如果页面上的DOM元素数量减少了一半，所有测试的速度都是相应的减少。但是，我们一直保证很大程度的减少DOM的数量。这让我想知道CSS中未使用的样式的数量会不会对性能产生影响
+
+# What difference to selection speed does a whole lot of unused styles make?
+
+另一个测试：我从fiatuk网站抓取了一个大的胖样式表。它大约有3000行CSS。所有这些不相关的样式都被插入到一个最终规则中，这个规则将选择我们的内部a。链接节点，使之成为红色。我在每个浏览器上都做了相同的平均结果
+
+然后我把一半的规则去掉，然后重复测试来进行比较。这里是结果:
+
+| Test  | Chrome 34 | Firefox 29 | Opera 19 | IE9   | Android 4 |
+| ----- | --------- | ---------- | -------- | ----- | --------- |
+| 所有的样式 | 64.4      | 237.6      | 74.2     | 436.8 | 1714.6    |
+| 一半的样式 | 51.6      | 142.8      | 65.4     | 358.6 | 1412.4    |
+
+# Style diet
+
+这提供了一些有趣的数据。例如，在完成这个测试时，Firefox的速度比它最慢的选择器测试（test 6）慢了1.7倍。Android 4.3比它最慢的选择器测试慢了1.2倍（测试6）。Internet Explorer比它最慢的选择器慢了2.5倍。
+
+当一半的样式被删除时，你可以看到Firefox的东西下降了很多（大约1500行）。在这一点上，Android设备的速度也接近于最慢的选择器的速度。
+
+## Removing unused styles
+
+这种恐怖场景对你来说是不是很熟悉？具有各种选择器的巨大CSS文件（通常使用的选择器甚至都不工作），更具体的选择器的块更大，更深入，不适用的前缀，杂乱的id，文件大小为50-80KB（有时更多）。
+
+如果您正在处理一个有一个像这样的大胖CSS文件的代码库，那么没有人确切地知道所有的样式实际上是干什么的——在选择器被使用之前，请查看CSS优化。
+
+处理这个问题似乎比对所使用的选择器吹毛求疵更有意义。它将产生双倍的影响;用户下载的代码更少，但对UA解析的代码也更少——这是一个速度提升。
+
+同样，这对CSS的实际性能也没有帮助
+
+# Performance inside the brackets
+
+我运行的最后一个测试是用一堆“昂贵”的属性和值来访问页面
+
+```CSS
+.link {
+    background-color: red;
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: 0 5px 5px #000;
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    transform: rotate(10deg);
+    display: block;
+}
+```
+
+以下是结果
+
+| Test             | Chrome 34 | Firefox 29 | Opera 19 | IE9   | Android 4 |
+| ---------------- | --------- | ---------- | -------- | ----- | --------- |
+| Expensive Styles | 65.2      | 151.4      | 65.2     | 259.2 | 1923      |
+
+在这里，所有的浏览器都至少比最慢的选择器测试慢了1.5倍，而Android设备比最慢的选择器测试慢了1.3倍，但这还不是全部。 试试看滚动浏览器!重绘样式会让你的电脑哭泣
+
+实际上,我们在括号里的属性才是真正影响性能的。这是有理由的，一直滚动一个昂贵的需要重绘的并且布局一直在变化的页面将会给电脑带来压力。	 Nice HiDPI screen? It will be even worse as the CPU/GPU strains to get everything re-painted to screen in under 16ms.
+
+With the expensive styles test, on the 15" Retina MacBook Pro I tested on, the paint time shown in continuous paint mode in Chrome never dropped below 280ms (and remember, we are aiming for sub–16ms). To put that in perspective for you, the first selector test page, never went above 2.5ms. That wasn’t a typo. Those properties created a 112X increase in paint time. Holy ’effing expensive properties Batman! Indeed Robin. Indeed.
+
+# What properties are expensive?
+
+一个“昂贵”的属性/值配对是我们可以非常自信的一个，它会让浏览器在重新绘制屏幕时（例如在滚动屏幕上）挣扎。
+
+我们怎么知道什么是“昂贵”的风格？值得庆幸的是，我们可以将常识应用到这一点上，并对如何对浏览器征税有一个很好的想法。任何需要浏览器在绘图前进行操作/计算的东西都将更加昂贵。例如，框阴影、border-radius、透明度（浏览器必须计算如下所示的内容）、转换和性能杀手，如CSS过滤器——如果性能是您的优先级，那么任何类似的东西都是您最大的敌人
+
+Juriy “kangax” Zaytsev did [a fantastic blog post also covering CSS performance](http://perfectionkills.com/profiling-css-for-fun-and-profit-optimization-notes/) back in 2012. He was using the various developer tools to measure performance. He did a particularly good job of showing the difference that various properties had on performance. If this kind of thing interests you then that post is well worth your time.
+
+
+
+# Conclusion
+
+在现代浏览器中使用的选择器的出汗是徒劳的;大多数选择方法都是如此之快，以至于不值得花太多时间在上面。此外，在不同的浏览器中，最慢的选择器是什么。请在这里查看最后以加速您的CSS。
+
+过度使用的样式可能会比你选择的任何选择器花费更多，性能上更有价值，所以要在那里整理一下。在页面上未使用或剩余的3000行甚至都不常见。把所有的风格都组合成一种非常大的单一风格是很常见的。css，如果您的站点/web应用程序的不同区域可以有不同的（附加的）样式表（依赖图样式），那可能是更好的选择
+
+如果你的CSS已经被许多不同的作者添加到时间里，那么看看像UnCSS这样的工具来自动删除样式——手工完成这个过程并不好玩！
+
+在使用的选择器中不会赢得高性能CSS的战斗，它将通过明智地使用财产和价值赢得胜利。
+
+把东西涂在屏幕上，这显然很重要，但当用户与之交互时，页面的感觉也是如此。首先寻找昂贵的财产和价值对（Chrome的连续重绘模式是你的朋友），它们很可能会带来最大的收益。
+
+```javascript
+option = {
+    title: {
+        text: '折线图堆叠'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['IE11','Google Chrome 65','Mozilla Firefox 55']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [
+        {
+            name:'IE11',
+            type:'line',
+            data:[151,152.8,107.1,114,106.4,131.9,103.5,108.6,121.8,124.4,104.3,97.7,107.4,104.4,106.1,114.7,103.4,101.4,106.3,118.6]
+        },
+        {
+            name:'Google Chrome 65',
+            type:'line',
+            data:[50.4,51.7,49.6,48.9,50.7,57.5,47.1,50,48.3,49.3,50.4,50.1,48.6,52,49.5,50.3,50.1,49.8,60.9,49.1]
+        },
+        {
+            name:'Mozilla Firefox 55',
+            type:'line',
+            data:[209.5, 198,193.9,205.9,209.2,204.7,195.4,200.3,204.3,200.6,199.9,209.2,116.4,93.5,98.3,104.7,99.6,103.8,106.8,109.8]
+        }
+    ]
+};
+```

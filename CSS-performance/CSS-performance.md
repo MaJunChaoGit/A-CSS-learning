@@ -1,36 +1,34 @@
-http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/
 
-什么是高效的CSS?不同的选择器对性能的影响如何?是花括号里的属性重要还是选择器重要?.
 
-然而我们在优化网站的性能时,CSS的优化往往是最后的.有更多的优化方案可以带来比CSS优化更显著更快速的收益.然而,我们将其结合起来后,会有一些更大的收获,用户将永远收益.
+ <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> 原文地址 
 
-每当与同行去讨论CSS的速度,往往大家会引用Steve Souders的属性选择器慢或者是伪类选择器慢的结论
+###什么是高效的CSS?不同的选择器对性能的影响如何?是花括号里的属性重要还是选择器重要?.
 
-然后随着现代浏览器的发展,我觉得验证诸如“属性选择器慢”或“伪选择器慢”之类的反而变得没有太大的意义,
+我们在做优化网站的性能时,CSS的优化往往是最后的选择.因为有更多的优化方案可以带来比CSS优化更显著更快速的收益.
+然而,对一个CSS库进行优化却可以为用户带来更好的体验
 
-把性能的提升放在括号内而不是括号外才是我们应该关心的事情
+`每当大家讨论CSS的速度时,往往大家会引用Steve Souders的属性选择器慢或者是伪类选择器慢的结论.然而随着现代浏览器的发展,我觉得验证诸如"属性选择器慢"或"伪选择器慢"之类的反而变得没有太大的意,应该把性能的提升放在括号内而不是括号外才是我们应该关心的事情`
 
-但是除了引用Nicole Sullivand的文章来支持我的假设,选择器不同并不重要，我从来没有真正测试过这个理论;我的天赋不足和缺乏完美的分析头脑使我无法尝试,下面让我们来进行一些简单的尝试
+但是除了引用Nicole Sullivand的文章来支持我的假设,选择器不同并不重要，在这之前我从来没有真正测试过这个理论;因为我的天赋不足和缺乏完美的分析头脑使我无法尝试,我只能进行一些简单的尝试
 
-# Testing selector speed
+##Testing selector speed
 
-```javascript
+```
 <script type="text/javascript">
-    ;(function TimeThisMother() {
-        window.onload = function(){
-            setTimeout(function(){
-            var t = performance.timing;
-                alert("Speed of selection is: " + (t.loadEventEnd - t.responseEnd) + " milliseconds");
-            }, 0);
-        };
-    })();
-</script>
-//了解(t.loadEventEnd - t.responseEnd)
+        ;(function TimeThisMother() {
+            window.onload = function(){
+                setTimeout(function(){
+                var t = performance.timing;
+                    alert("Speed of selection is: " + (t.loadEventEnd - t.responseEnd) + " milliseconds");
+                }, 0);
+            };
+        })();
+ </script>
 ```
 
-并且，我设置了一个非常简单的测试。20个不同的选择器，都有一个相同的、巨大的DOM，由1000个相同的标记组成
+并且，我设置了一个非常简单的测试。20个不同的选择器，都有一个相同的、巨大的DOM，由下面1000个相同的DOM组成
 
-```html
+```
 <div class="tagDiv wrap1">
   <div class="tagDiv layer1" data-div="layer1">
     <div class="tagDiv layer2">
@@ -44,99 +42,100 @@ http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/
 
 测试的方式就是通过不同规则的选择器来让最内部的a标签的字体变为红色,每次测试的结果为每个浏览器的5次平均值.在测试中,我实际是运行了十次,而因为前五次的结果往往是有异常的,所以我们只取后5次的结果.
 
-这里需要注意的是,我们关注点是不同选择器在同一浏览器上的表现,而不是浏览器之间相互的PK.所以在关注下面表格时,从上往下一列一列的看才是合适的.
+`需要注意的是,我们关注点是不同选择器在同一浏览器上的表现,而不是浏览器之间相互的PK.所以在关注下面表格时,从上往下一列一列的看才是合适的.`
 
-下面就是测试的结果:
+**下面就是测试的结果(单位ms):**
+| 序号   |                                  CSS测试用例 | IE11  | Google Chrome 65 | Mozilla Firefox 55 |
+| :--- | ---------------------------------------: | :---: | :--------------: | :----------------: |
+| 1    |                            [data-select] |  69   |       73.2       |       121.4        |
+| 2    |                           a[data-select] | 87.8  |       59.8       |       116.4        |
+| 3    |                     [data-select="link"] | 98.4  |       56.6       |        108         |
+| 4    |                    a[data-select="link"] | 95.5  |        55        |       104.4        |
+| 5    | div[data-div="layer1"] a[data-select="link"] | 82.6  |       56.6       |        104         |
+| 6    |                                  a:after |  105  |       68.2       |        121         |
+| 7    |                               .tagA.link | 79.2  |        59        |        108         |
+| 8    |                             .tagUl .link | 95.2  |       55.4       |       109.8        |
+| 9    |                            .tagB > .tagA | 82.4  |       54.2       |       107.8        |
+| 10   |                          [class^="wrap"] | 85.2  |       57.6       |       119.2        |
+| 11   |                     div:nth-of-type(1) a |  79   |        54        |       104.4        |
+| 12   |  div:nth-of-type(1) div:nth-of-type(1) a | 93.8  |        54        |        96.6        |
+| 13   | div.wrapper > div.tagDiv > div.tagDiv.layer1  > div.tagDiv.layer2 > ul.tagUl > li.tagLi > b.tagB > a.tagA.link | 94.2  |       52.8       |       101.4        |
+| 14   |                 .tagLi .tagB a.tagA.link | 80.6  |        57        |       103.4        |
+| 15   |                                        * | 78.6  |       53.6       |        98.3        |
+| 16   |                                        a | 96.6  |       55.2       |       103.8        |
+| 17   |                                    div a | 95.8  |       59.6       |       122.8        |
+| 18   |                                 div ul a |  82   |       60.8       |       120.8        |
+| 19   |                           div ul a:after | 102.8 |       69.6       |       130.2        |
+| 20   |                                    .link | 79.6  |        57        |        119         |
+|      |                                    最大的差异 |  36   |       20.4       |         34         |
+|      |                                 最慢的选择器序号 |  19   |        1         |         19         |
 
-| 序号   | CSS测试用例                                  | IE11  | Google Chrome 65 | Mozilla Firefox 55 |
-| ---- | ---------------------------------------- | ----- | ---------------- | ------------------ |
-| 1    | [data-select]                            | 69    | 73.2             | 121.4              |
-| 2    | a[data-select]                           | 87.8  | 59.8             | 116.4              |
-| 3    | [data-select="link"]                     | 98.4  | 56.6             | 108                |
-| 4    | a[data-select="link"]                    | 95.5  | 55               | 104.4              |
-| 5    | div[data-div="layer1"] a[data-select="link"] | 82.6  | 56.6             | 104                |
-| 6    | a:after                                  | 105   | 68.2             | 121                |
-| 7    | .tagA.link                               | 79.2  | 59               | 108                |
-| 8    | .tagUl .link                             | 95.2  | 55.4             | 109.8              |
-| 9    | .tagB > .tagA                            | 82.4  | 54.2             | 107.8              |
-| 10   | [class^="wrap"]                          | 85.2  | 57.6             | 119.2              |
-| 11   | div:nth-of-type(1) a                     | 79    | 54               | 104.4              |
-| 12   | div:nth-of-type(1) div:nth-of-type(1) a  | 93.8  | 54               | 96.6               |
-| 13   | div.wrapper > div.tagDiv > div.tagDiv.layer1  > div.tagDiv.layer2 > ul.tagUl > li.tagLi > b.tagB > a.tagA.link | 94.2  | 52.8             | 101.4              |
-| 14   | .tagLi .tagB a.tagA.link                 | 80.6  | 57               | 103.4              |
-| 15   | *                                        | 78.6  | 53.6             | 98.3               |
-| 16   | a                                        | 96.6  | 55.2             | 103.8              |
-| 17   | div a                                    | 95.8  | 59.6             | 122.8              |
-| 18   | div ul a                                 | 82    | 60.8             | 120.8              |
-| 19   | div ul a:after                           | 102.8 | 69.6             | 130.2              |
-| 20   | .link                                    | 79.6  | 57               | 119                |
-|      | 最大的差异                                    | 36    | 20.4             | 34                 |
-|      | 最慢的选择器序号                                 | 19    | 1                | 19                 |
+##这意味着这什么?
 
-## What does this mean?
+经过我多次的测试,尽管同浏览器下,不同的选择器确实会有一定速度差异,但还是无法从得到的结果中推断出哪个选择器最慢.
 
-然后经过我多次的测试,尽管差异值彼此相差不多,但是还是无法从每次得到的结果中推断出哪个选择器最慢.
+`不过我们可以确定的是,使用类选择器,不仅可以和选择其他选择器拥有一样的速度拥有一样的运行速度，而且还可以使你的CSS更具模块化的特征.`
 
-不过我们可以确定的是,使用类选择器,不仅可以和选择其他选择器拥有一样的速度拥有一样的运行速度，而且还可以使你的CSS更具模块化的特征.
+`对于我们来说，上述测试中拥有1000个DOM，并且对于用户访问网站时最快与最慢的选择器之间差别也并不足以影响体验，它已经证实了担心使用何种选择器类型是一件浪费时间的事情，因为我们还有更加重要的事情去做`
 
-对于我们来说，上述测试中即使拥有1000个DOM，最快与最慢的选择器之间差别也并不是很大，它已经证实了担心使用何种选择器类型是一件浪费时间的事情，因为我们还有更加重要的事情去做
+在原文博客中 ，作者与WebKit工程师本杰明普尔的探讨是非常有趣的,下面引用了一些信息:
 
-在原文博客中 ，作者与WebKit工程师本杰明普尔的探讨是非常有趣的,下面引用了一些信息
-
->对于加载一个页面来说，有太多其他的因素参与，而CSS的加载只是其中的一小部分。
+> 对于加载一个页面来说，有太多其他的因素参与，而CSS的加载只是其中的一小部分。
+> </br>
+> 咱们以测试10的 [class^="wrap"] 选择器为例
+>  </br>
+> ` ~10% 的时间用于光栅化图元`
+>  </br>
+> `~21% 的时间用于元素放置布局`
+>  </br>
+> `~48% 的时间用于解析与DOM树的构建`
+>  </br>
+> `~8% 的时间用于CSS解析`
+>  </br>
+> `~5% 的时间用于收集样式 – 而这一部分才是我们应该测试的地方`
 >
->咱们以测试10的 [class^="wrap"] 选择器为例
->
->~10% 的时间用于光栅化图元
->~21% 的时间用于元素放置布局
->~48% 的时间用于解析与DOM树的构建
->~8% 的时间用于CSS解析
->~5% 的时间用于收集样式 – 而这一部分才是我们应该测试的地方
->
->剩下来的时间分布在一些小的函数上
->
->通过上面的测试，假设我们最快的选择器的速度为100ms。其中，5 ms将被用于收集风格。
->
->假设下载另外一个选择器的速度比第一个选择器慢3倍，那么它的加载时间就应该为110ms.
->
->那么,在测试报告中应该为300%的差异，而不是现在的10%
->
->基于这一点，原文作者回答说，虽然我理解本杰明所指的是什么，但我的测试只是为了说明我在这篇文章中的观点 —— 在其他条件不变的情况下，不同的选择器的使用并不会影响性能
->
->本杰明花时间回答了更多的细节：
->
->我完全同意优化选择器一无是处，但是我跟你的原因并不相同
->
->通过检查选择器，几乎不可能预测给定选择器的最终性能影响。在引擎中，选择器被重新排序、分割、收集和编译。要知道给定选择器的最终性能，您必须知道选择器是如何收集的，它是如何编译的，最后是DOM树是什么样子的
->
->所有这些在不同的引擎之间是非常不同的，这使得整个过程更加难以预测。
->
->我反对web开发人员优化选择器的第二个理由是，它们可能会使事情变得更糟。关于选择器的错误信息比正确的浏览器兼容信息要多。想要把它做好几乎不可能
->
->然而在开发中，人们会发现CSS的性能问题，并开始一个接一个地删除样式规则，直到问题解决。我认为这是正确的做法，这很容易，而且会带来正确的结果。
+> 剩下来的时间分布在一些小的函数上
+> </br>
+> 通过上面的测试，我们假设最快的选择器的速度为100ms。其中，5 ms将被用于收集样式。
+>  </br>
+> 假设下载另外一个选择器的速度比第一个选择器慢3倍，那么它的加载时间就应该为110ms.
+>  </br>
+> 那么,在测试报告中应该为300%的差异，而不是现在的10%
+>  </br>
+> 基于这一点，原文作者回答说，虽然我理解本杰明所指的是什么，但我的测试只是为了说明我在这篇文章中的观点 ——
+> 在其他条件不变的情况下，不同的选择器的使用并不会影响性能
+>  </br>
+> 本杰明花时间回答了更多的细节：
+>  </br>
+> 我完全同意优化选择器没有太多的必要，不过我跟你的原因并不相同:
+>  </br>
+> 通过检查选择器，几乎不可能预测给定选择器的最终性能影响。在引擎中，选择器被重新排序、分割、收集和编译。要知道给定选择器的最终性能，您必须知道选择器是如何收集的，它是如何编译的，最后是DOM树是什么样子的?
+>  </br>
+> 所有这些在不同的引擎之间是非常不同的，这使得整个过程更加难以预测。
+>  </br>
+> 我反对web开发人员优化选择器的第二个理由是，它们可能会使事情变得更糟。关于选择器的错误信息比正确的浏览器兼容信息要多。想要把它做好几乎不可能
+>  </br>
+> 然而在开发中，人们会发现CSS的性能问题，并开始一个接一个地删除样式规则，直到问题解决。我认为这是正确的做法，这很容易，而且会带来正确的结果。
 
-# Cause and effect
+##原因与结果
 
-如果页面上的DOM元素数量减少了一半，所有测试的速度都是相应的减少。但是，我们一直保证很大程度的减少DOM的数量。这让我想知道CSS中未使用的样式的数量会不会对性能产生影响
+如果页面上的DOM元素数量减少了一半，那么所有测试的速度理应都是相对应的减少.但是,很多时候DOM对象的数量并不能大幅度的减少.这让我想知道CSS中未使用的样式的数量会不会对性能产生影响?
 
-# What difference to selection speed does a whole lot of unused styles make?
+另一个测试：我从fiatuk网站抓取了一个臃肿的样式表。它大约有3000行CSS。所有这些不相关的样式都被插入到一个最终的文件中，这个文件中的样式是将我们的DOM对象中的所有的内部a节点变成红色。我在每个浏览器上都做了相同的平均结果
 
-另一个测试：我从fiatuk网站抓取了一个大的胖样式表。它大约有3000行CSS。所有这些不相关的样式都被插入到一个最终规则中，这个规则将选择我们的内部a。链接节点，使之成为红色。我在每个浏览器上都做了相同的平均结果
+**然后我把一半的规则去掉，然后重复测试来进行比较。这里是结果(单位:ms):**
 
-然后我把一半的规则去掉，然后重复测试来进行比较。这里是结果:
+| Test  | Chrome 34 | Firefox 29 | Opera 19 |  IE9  | Android 4 |
+| :---- | --------: | :--------: | :------: | :---: | --------- |
+| 所有的样式 |      64.4 |   237.6    |   74.2   | 436.8 | 1714.6    |
+| 一半的样式 |      51.6 |   142.8    |   65.4   | 358.6 | 1412.4    |
 
-| Test  | Chrome 34 | Firefox 29 | Opera 19 | IE9   | Android 4 |
-| ----- | --------- | ---------- | -------- | ----- | --------- |
-| 所有的样式 | 64.4      | 237.6      | 74.2     | 436.8 | 1714.6    |
-| 一半的样式 | 51.6      | 142.8      | 65.4     | 358.6 | 1412.4    |
-
-# Style diet
 
 这提供了一些有趣的数据。例如，在完成这个测试时，Firefox的速度比它最慢的选择器测试（test 6）慢了1.7倍。Android 4.3比它最慢的选择器测试慢了1.2倍（测试6）。Internet Explorer比它最慢的选择器慢了2.5倍。
 
 当一半的样式被删除时，你可以看到Firefox的东西下降了很多（大约1500行）。在这一点上，Android设备的速度也接近于最慢的选择器的速度。
 
-## Removing unused styles
+Removing unused styles
 
 这种恐怖场景对你来说是不是很熟悉？具有各种选择器的巨大CSS文件（通常使用的选择器甚至都不工作），更具体的选择器的块更大，更深入，不适用的前缀，杂乱的id，文件大小为50-80KB（有时更多）。
 
@@ -146,29 +145,26 @@ http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/
 
 同样，这对CSS的实际性能也没有帮助
 
-# Performance inside the brackets
+Performance inside the brackets
 
 我运行的最后一个测试是用一堆“昂贵”的属性和值来访问页面
 
-```CSS
-.link {
-    background-color: red;
-    border-radius: 5px;
-    padding: 3px;
-    box-shadow: 0 5px 5px #000;
-    -webkit-transform: rotate(10deg);
-    -moz-transform: rotate(10deg);
-    -ms-transform: rotate(10deg);
-    transform: rotate(10deg);
-    display: block;
-}
-```
+    .link {
+        background-color: red;
+        border-radius: 5px;
+        padding: 3px;
+        box-shadow: 0 5px 5px #000;
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+        transform: rotate(10deg);
+        display: block;
+    }
 
 以下是结果
 
-| Test             | Chrome 34 | Firefox 29 | Opera 19 | IE9   | Android 4 |
-| ---------------- | --------- | ---------- | -------- | ----- | --------- |
-| Expensive Styles | 65.2      | 151.4      | 65.2     | 259.2 | 1923      |
+  Test            	Chrome 34	Firefox 29	Opera 19	IE9  	Android 4
+  Expensive Styles	65.2     	151.4     	65.2    	259.2	1923     
 
 在这里，所有的浏览器都至少比最慢的选择器测试慢了1.5倍，而Android设备比最慢的选择器测试慢了1.3倍，但这还不是全部。 试试看滚动浏览器!重绘样式会让你的电脑哭泣
 
@@ -176,17 +172,17 @@ http://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/
 
 With the expensive styles test, on the 15" Retina MacBook Pro I tested on, the paint time shown in continuous paint mode in Chrome never dropped below 280ms (and remember, we are aiming for sub–16ms). To put that in perspective for you, the first selector test page, never went above 2.5ms. That wasn’t a typo. Those properties created a 112X increase in paint time. Holy ’effing expensive properties Batman! Indeed Robin. Indeed.
 
-# What properties are expensive?
+What properties are expensive?
 
 一个“昂贵”的属性/值配对是我们可以非常自信的一个，它会让浏览器在重新绘制屏幕时（例如在滚动屏幕上）挣扎。
 
 我们怎么知道什么是“昂贵”的风格？值得庆幸的是，我们可以将常识应用到这一点上，并对如何对浏览器征税有一个很好的想法。任何需要浏览器在绘图前进行操作/计算的东西都将更加昂贵。例如，框阴影、border-radius、透明度（浏览器必须计算如下所示的内容）、转换和性能杀手，如CSS过滤器——如果性能是您的优先级，那么任何类似的东西都是您最大的敌人
 
-Juriy “kangax” Zaytsev did [a fantastic blog post also covering CSS performance](http://perfectionkills.com/profiling-css-for-fun-and-profit-optimization-notes/) back in 2012. He was using the various developer tools to measure performance. He did a particularly good job of showing the difference that various properties had on performance. If this kind of thing interests you then that post is well worth your time.
+Juriy “kangax” Zaytsev did a fantastic blog post also covering CSS performance back in 2012. He was using the various developer tools to measure performance. He did a particularly good job of showing the difference that various properties had on performance. If this kind of thing interests you then that post is well worth your time.
 
 
 
-# Conclusion
+Conclusion
 
 在现代浏览器中使用的选择器的出汗是徒劳的;大多数选择方法都是如此之快，以至于不值得花太多时间在上面。此外，在不同的浏览器中，最慢的选择器是什么。请在这里查看最后以加速您的CSS。
 
@@ -198,52 +194,54 @@ Juriy “kangax” Zaytsev did [a fantastic blog post also covering CSS performa
 
 把东西涂在屏幕上，这显然很重要，但当用户与之交互时，页面的感觉也是如此。首先寻找昂贵的财产和价值对（Chrome的连续重绘模式是你的朋友），它们很可能会带来最大的收益。
 
-```javascript
-option = {
-    title: {
-        text: '折线图堆叠'
-    },
-    tooltip: {
-        trigger: 'axis'
-    },
-    legend: {
-        data:['IE11','Google Chrome 65','Mozilla Firefox 55']
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-    },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
-    },
-    xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [
-        {
-            name:'IE11',
-            type:'line',
-            data:[151,152.8,107.1,114,106.4,131.9,103.5,108.6,121.8,124.4,104.3,97.7,107.4,104.4,106.1,114.7,103.4,101.4,106.3,118.6]
+    option = {
+        title: {
+            text: '折线图堆叠'
         },
-        {
-            name:'Google Chrome 65',
-            type:'line',
-            data:[50.4,51.7,49.6,48.9,50.7,57.5,47.1,50,48.3,49.3,50.4,50.1,48.6,52,49.5,50.3,50.1,49.8,60.9,49.1]
+        tooltip: {
+            trigger: 'axis'
         },
-        {
-            name:'Mozilla Firefox 55',
-            type:'line',
-            data:[209.5, 198,193.9,205.9,209.2,204.7,195.4,200.3,204.3,200.6,199.9,209.2,116.4,93.5,98.3,104.7,99.6,103.8,106.8,109.8]
-        }
-    ]
-};
-```
+        legend: {
+            data:['IE11','Google Chrome 65','Mozilla Firefox 55']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name:'IE11',
+                type:'line',
+                data:[151,152.8,107.1,114,106.4,131.9,103.5,108.6,121.8,124.4,104.3,97.7,107.4,104.4,106.1,114.7,103.4,101.4,106.3,118.6]
+            },
+            {
+                name:'Google Chrome 65',
+                type:'line',
+                data:[50.4,51.7,49.6,48.9,50.7,57.5,47.1,50,48.3,49.3,50.4,50.1,48.6,52,49.5,50.3,50.1,49.8,60.9,49.1]
+            },
+            {
+                name:'Mozilla Firefox 55',
+                type:'line',
+                data:[209.5, 198,193.9,205.9,209.2,204.7,195.4,200.3,204.3,200.6,199.9,209.2,116.4,93.5,98.3,104.7,99.6,103.8,106.8,109.8]
+            }
+        ]
+    };
+
+
+
+

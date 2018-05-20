@@ -89,3 +89,18 @@ text-transform: none
 | pre      | 保留   | 保留   | 不允许  |
 | pre-wrap | 保留   | 保留   | 允许   |
 
+**10.font-variant**
+
+font-variant可以设定小型大写字母
+
+```CSS
+p {font-variant:small-caps;}
+```
+
+**11.list-style**
+
+依次分别为设置列表项的样式，位置，图片路径
+
+```CSS
+list-style: square inside url('/i/eg_arrow.gif')
+```

@@ -102,5 +102,29 @@ p {font-variant:small-caps;}
 依次分别为设置列表项的样式，位置，图片路径
 
 ```CSS
-list-style: square inside url('/i/eg_arrow.gif')
+list-style: square inside url('/i/eg_arrow.gif')border-collapse**
 ```
+
+**12.border-collapse**
+
+可以将表格边框折叠成单一边框
+
+```CSS
+ border-collapse:collapse;
+```
+
+**13. caption-side**
+
+可以设置表格标题的位置
+
+```CSS
+ caption-side:bottom;
+```
+
+**14. table-layout**
+
+| 值         | 描述              |
+| --------- | --------------- |
+| automatic | 默认。列宽度由单元格内容设定。 |
+| fixed     | 列宽由表格宽度和列宽度设定。  |
+

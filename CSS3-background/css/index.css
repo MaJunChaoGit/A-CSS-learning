@@ -1,0 +1,17 @@
+/* 1.多重背景设置 */
+/* 写法1 */
+/* .example{
+	background-image: url(../images/img_flwr.gif),url(../images/paper.gif);
+	background-position: right bottom,left top;
+	background-repeat: no-repeat,repeat;
+	padding: 15px;
+} */
+/* 写法2 */
+/* .example {
+    background: url(../images/img_flwr.gif) right bottom no-repeat, url(../images/paper.gif) left top repeat;
+} */
+
+/* 2.背景大小设置 */
+.example{
+	
+}

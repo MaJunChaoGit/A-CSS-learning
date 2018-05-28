@@ -160,3 +160,13 @@ list-style: square inside url('/i/eg_arrow.gif')border-collapse**
 | rgb(x,x,x)      | RGB 值 (比如 rgb(255,0,0))       |
 | rgb(x%, x%, x%) | RGB 百分比值 (比如 rgb(100%,0%,0%)) |
 | #rrggbb         | 十六进制数 (比如 #ff0000)            |
+
+**17.值的间写方式**
+
+| 写法                | 说明                        |
+| ------------------- | --------------------------- |
+| 20px                | 上右下左都是20px            |
+| 20px 40px           | 上下20px,左右40px           |
+| 20px 40px 60px      | 上20px,左右40px,下60px      |
+| 20px 40px 60px 80px | 上20px,右40px,下60px,左80px |
+

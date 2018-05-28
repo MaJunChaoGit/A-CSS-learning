@@ -1,3 +1,7 @@
 strong{
-	color: red;
+	color: red;	
+	text-decoration: underline;
+}
+p{
+	color: blue;
 }

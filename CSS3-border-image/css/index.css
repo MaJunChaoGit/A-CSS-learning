@@ -1,0 +1,57 @@
+/* .border-image{
+	width: 400px;
+	height: 100px;
+	border: 1em double orange;
+	border-image: url(../images/border.png) 27;
+} */
+
+/* .border-image{
+	width: 400px;
+	height: 100px;
+	border: 1em double orange;
+	border-image: url(../images/border.png) 27 round;
+} */
+
+/* .border-image{
+	width: 400px;
+	height: 100px;
+	border: 1em double orange;
+	border-image: url(../images/border.png) 27 repeat;
+}
+ */
+/* .border-image{
+	width: 400px;
+	height: 100px;
+	border: double orange;
+	 -webkit-border-image:url(../images/border.png) 27/1em repeat; 
+    border-image:url(../images/border.png) 27/1em repeat;  
+}
+ */
+
+/* 下面是一些案例 */
+/* 1.自适应圆角效果 */
+/* .border-image{
+	width: 100px;
+	border: double gray 10px;
+	-webkit-border-image:url(../images/rounded_corner.png) 20;
+	text-align: center;
+	color: white;
+} */
+
+/* 2.多边框效果 */
+/* .border-image{
+	width: 100px;
+	border: double gray 10px;
+	border-image: url(../images/border_round.png) 20;
+	text-align: center;
+} */
+/* 3.自适应选项卡 */
+/* .border-image{
+    width:80px;
+    height:26px; 
+    border-image:url(../images/border_tab.png) 5 5 0; 
+    border-style:solid;
+    border-width:5px 5px 0px; 
+    border-color:orange; 
+    text-align:center;
+} */

@@ -12,6 +12,20 @@
 } */
 
 /* 2.背景大小设置 */
-.example{
-	
-}
+/* .example{
+    background:url(../images/img_flwr.gif);
+    background-size: 80px 60px;
+    background-repeat:no-repeat;
+} */
+
+/* 3.背景原点设置 */
+/* .example{
+	background:url(../images/img_flwr.gif);
+	border: 20px solid red;
+	padding: 50px;
+    background-repeat:no-repeat;
+    background-size:80px 60px;
+    background-origin:content-box; 以内容的左上角为原点
+    background-origin:padding-box; 以内边距的左上角为原点
+    background-origin:border-box; 以边框的左上角为原点
+} */

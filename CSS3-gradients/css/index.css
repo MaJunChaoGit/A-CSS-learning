@@ -1,0 +1,67 @@
+div{
+	width: 400px;
+	height: 300px;
+}
+/* 1.从上到下的线性渐变 */
+/* .example{
+	background: linear-gradient(red,blue);
+}
+ */
+
+/* 2.从左到右的线性渐变 */
+/* .example{
+	background: linear-gradient(to right, red, blue);
+} */
+
+/* 3.对角的线性渐变 */
+/* .example{
+	background: linear-gradient(to bottom right,red ,blue);
+} */
+
+/* 4.使用角度 */
+/* 旧标准换算公式 90 - x = y 其中 x 为标准角度，y为非标准角度。*/
+/* .example{
+	background: linear-gradient(90deg,red,blue);
+} */
+/* 5.使用多个颜色节点并配置比例 */
+/* .example{
+	background: linear-gradient(to right,red 50px,blue 100px,green 150px);
+} */
+/* 6.使用透明度 */
+/* .example{
+	background: linear-gradient(to right,rgba(255,0,0,1) 10%,rgba(255,0,0,0) 90%);
+} */
+/* 7.使用重复线性渐变 */
+/* .example{
+	background: repeating-linear-gradient(rgba(255, 255, 0, 1.0) 10%,rgba(255, 0, 0, 0) 20%);
+} */
+/* 8.径向渐变,颜色均匀分布 */
+/* .example{
+	background: radial-gradient(red,green,blue);
+} */
+/* 9.径向渐变,颜色不均匀分布 */
+/* .example{
+	background: radial-gradient(red 5%,green 10%,blue 50%);
+} */
+/* 10.设置形状 */
+/* .example{
+	background: radial-gradient(ellipse ,red ,green ,blue);
+} */
+/* 11.设置位置 */
+/* .example{
+	background: radial-gradient(at center bottom,red ,blue);
+	background: radial-gradient(at 10px 20px,red ,blue);
+	background: radial-gradient(at 20% 20%,red ,blue);
+	background: radial-gradient(at 30%,red,blue); //当只有一个值时，默认第二个值为center
+} */
+/* 12.渐变大小 */
+/* .example{
+	background: radial-gradient(closest-side at center center,red ,blue);
+	background: radial-gradient(closest-corner at center center,red ,blue);
+	background: radial-gradient(farthest-side at center center,red ,blue);
+	background: radial-gradient(farthest-corner at center center,red ,blue); //默认值为最远角
+} */
+/* 13.重复的径向渐变 */
+.example{
+	background: repeating-radial-gradient(red, yellow 10%);
+}

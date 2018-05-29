@@ -1,0 +1,83 @@
+/* 1.文本阴影 */
+/* h1{
+	text-shadow: 5px 5px 3px red;
+} */
+/* 2.边框阴影 */
+/* #boxshadow{
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	background-color: white;
+	width: 624px;
+	height: 404px;
+	position: absolute;
+}
+#boxshadow img{
+	width: 100%;
+	border: 2px inset #8a4419;
+}
+#boxshadow::after{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+	width: 70%;
+	left: 15%;
+	height: 100px;
+	bottom: 0;
+} */
+/* 3.纸质卡片样式 */
+/* .container{
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	width: 200px;
+	text-align: center;
+}
+.main{
+	font-size: 74px;
+	color: white;
+	background-color: #4CAF50;
+	padding: 30px;
+}
+.footer{
+	height: 50px;
+	line-height: 50px;
+} */
+/* 4.text-overflow样式 */
+/* div{
+	white-space: nowrap;
+	width: 12em;
+	overflow: hidden;
+	border: 1px solid #000000;
+}
+.text-ellipsis{
+	text-overflow: ellipsis;
+}
+.text-clip{
+	text-overflow: clip;
+}
+.text->>{
+	text-overflow: '>>';
+} */
+/* 5.CSS换行 */
+/* 强制换行
+.word-wrap{
+	width: 11em;
+	border: 1px solid #000;
+	word-wrap: break-word;
+} */
+/* .keep-all{
+	width: 9em;
+	border: 1px solid #000;
+	word-break: keep-all;
+}
+.break-all{
+	width: 9em;
+	border: 1px solid #000;
+	word-break: break-all;
+} */
+/* 6.文本最后一行对齐方式 */
+/* .text-last-align{
+	text-align-last: right;
+	width: 9em;
+	border: 1px solid #000;
+	word-break: keep-all;
+} */

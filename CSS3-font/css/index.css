@@ -1,0 +1,7 @@
+@font-face{
+	font-family: myFont;
+	src: url('../font/Sansation_Light.ttf');
+}
+div{
+	font-family: myFont
+}

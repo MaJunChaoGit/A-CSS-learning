@@ -1,0 +1,124 @@
+/* 1.基本写法，支持中文:root{
+	--test: #342;
+}
+body{
+	background-color: var(--1);
+}
+
+:root{
+	--深蓝: #369;
+}
+body{
+	background-color: var(--深蓝);
+}  */
+
+/* 1.变量也是跟着CSS选择器走的，如果变量所在的选择器和使用变量的元素没有交集，
+是没有效果的。例如#alert定义的变量，只有id为alert的元素才能享有。如果你想变量全局使用，则你可以设置在:root选择器上；
+
+2.当存在多个同样名称的变量时候，变量的覆盖规则由CSS选择器的权重决定的，
+但并无!important这种用法，因为没有必要，!important设计初衷是干掉JS的style设置，但对于变量的定义则没有这样的需求。 */
+/* :root{
+	--color: purple;
+}
+div{
+	--color: green;
+}
+#alert{
+	--color: red;
+}
+* {
+	color: var(--color);
+} */
+
+/* 3.第二个参数为默认值
+.box{
+	--1: #369
+}
+body{
+	background-color: var(--1,#cd0000);
+} */
+
+/* 4.变量不合法的缺省特性 */
+/* 如果属性值不合法，那么直接会使用属性的缺省值 */
+/* body{
+	--color: 20px;
+	background-color: #369;
+	background-color: var(--color, #cd0000);
+} */
+
+/* 5.CSS变量的空格尾随特性 */
+/* body{
+	--size: 20;
+	font-size: var(--size)px; //实际上是 20 px
+} */
+/* 
+body{
+	--size: 20px;
+	font-size: var(--size);
+}
+body{
+	--size: 20;
+	font-size: calc(var(--size) * 1px);
+} */
+
+/* 6.CSS变量的相互传递特性 */
+/* body{
+	--green:  #4CAF50;
+	--backgroundColor: var(--green);
+	background-color: var(--backgroundColor);
+}
+body{
+	--columns: 4;
+	--margins: calc(24px / var(--columns));
+	margin: var(--margins);
+} */
+
+/* 7.通过变量设计的响应式布局 */
+.box{
+	--columns: 4;
+	--margins: calc(24px / var(--columns));
+	--space: calc(4px * var(--columns));
+	--fontSize:  calc(20px - 4 / var(--columns));
+}
+.box{
+	width: 50%;
+	margin: auto;
+	overflow: hidden;
+	min-width: 320px;
+}
+.cell{
+	width: calc((100% - var(--margins) * var(--columns) * 2) / var(--columns));
+	margin: var(--margins);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+	background-color: #f0f3f9;
+	float: left;
+}
+.cell-title{
+	color: #fff;
+	padding: var(--space);
+	font-size: var(--fontSize);
+}
+.cell-content{
+	height: 150px;
+	padding: var(--space);
+	font-size: var(--fontSize);
+}
+@media screen and (max-width: 1200px) {
+	.box{
+		--columns: 3;
+	}
+}
+
+
+@media screen and (max-width: 900px) {
+	.box{
+		--columns: 2;
+	}
+}
+
+
+@media screen and (max-width: 600px) {
+	.box{
+		--columns: 1;
+	}
+}

@@ -1,0 +1,13 @@
+/* 1.说明了真正撑开DIV高度的是line-height这个属性,而不是里面的内容 */
+.test1{
+	background-color: #eee;
+	border: 1px solid #ccc;
+	line-height: 0;
+	font-size: 20px;
+}
+.test2{
+	background-color: #eee;
+	border: 1px solid #ccc;
+	line-height: 20px;
+	font-size: 0;
+}

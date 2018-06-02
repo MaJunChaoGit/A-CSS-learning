@@ -1,0 +1,36 @@
+/* .btn1{display:inline-block; 
+	background:url(../images/sina_gray_btn.png)
+	 no-repeat left top; 
+	 padding-left:3px;
+	  color:#000; 
+	  font-size:12px; 
+	  text-decoration:none;}
+
+.btn1 cite{
+	display:block; 
+	line-height:26px; 
+	padding:0 13px 0 10px;
+	 background:url(../images/sina_gray_btn.png) no-repeat right top;
+} */
+
+.btn1{
+	/* 换成float: left; */
+	float: left; 
+	background:url(../images/sina_gray_btn.png)
+	 no-repeat left top; 
+	 padding-left:3px;
+	  color:#000; 
+	  font-size:12px; 
+	  text-decoration:none;}
+
+.btn1 cite{
+	display:block; 
+	line-height:26px; 
+	padding:0 13px 0 10px;
+	 background:url(../images/sina_gray_btn.png) no-repeat right top;
+}
+/* 上面这个例子旨在说明浮动属性
+（无论是左浮动还是右浮动）某种意义上而言与display:inline-block属性的作用是一模一样的，
+所以类似于display:block; float:left;的CSS代码超过95%的情况是没有道理的(display:block是多余的)。
+然而，float无法等同于display:inline-block，其中原因之一就是浮动的方向性，display:inline-block仅仅一个水平排列方向，
+就是从左往右，而float可以从右往左排列，这就是两者的差异。然而，我们又有多少情况需要元素从右往左排列呢？很少，所以，CSS中，没有浮动这一属性不是什么大不了的事情，它其实就那么回事。 */

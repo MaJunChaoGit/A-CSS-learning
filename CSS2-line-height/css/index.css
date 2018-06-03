@@ -11,3 +11,41 @@
 	line-height: 20px;
 	font-size: 0;
 }
+
+.mulit_line{
+	line-height: 150px;
+	border: 1px dashed #ccc;
+	padding-left: 5px;
+}
+.mulit_line span{
+	display: inline-block;
+	line-height: 1.4em;
+	vertical-align: middle;
+}
+.mulit_line i{
+	width: 0;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 0;
+}
+
+/* 一般社交型的网站都会有发博文或写日志的功能，其中发表后的文章显示也是有学问的，其中之一就是line-height行高。
+
+首先要知道行高的几种表示方法：px/em，或normal，或百分值，或数值，或inherit继承。
+
+在显示文章的box里，px的表示方法首先是要被淘汰的。因为文章里面的文字是有大有小的，使用px定值，由于继承性，
+无法实现根据文字大小自动调整间距，会出现大号文字重叠的现象。normal也是不行的，一般文章显示最好是650像素的宽度，
+1.5倍的行距较好。一般浏览器的normal值在1~1.2之间，使用normal必然文字间距过小，阅读吃力。百分值也有继承性，
+但是有个很搓的办法可以实现文字间距自动适应于文字的大小，那就是使用*通配符，例如：
+
+.article_box *{line-height:150%;}
+
+就不会出现文字重叠的情况了。网易博客就是使用的这个方法，下图为证：
+
+网易博客使用百分比加通配符实现行高自适应
+
+为什么说这个方法搓呢，使用*通配符大大增加了CSS的渲染，
+
+效率低，而且有更好的方法，就是使用数值。150%虽然和1.5在值上是一样的，但是它们也是有差别的，差别在于继承性，
+使用百分比会计算line-height的值，然后以px像素为单位继承下去，而1.5则是先继承1.5这个值，遍历到了该标签再计算去line-height的像素值
+所以同样的效果只需要下面CSS就可以实现了。 */

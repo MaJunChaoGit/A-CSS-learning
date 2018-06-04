@@ -5,7 +5,34 @@
 	background-color: yellow;
 } */
 
-.broken{
+/* .broken{
 	border: 1px solid red;
 	background-color: yellow;
+} */
+/* .existed{
+	margin: 20px;
+	padding: 20px;
+	border: 1px solid red;
+	background-color: yellow;
+	background-clip: content-box;
+} */
+
+.parent{
+	line-height: 1;
+	font-size: 14px;
+	border: 1px solid yellow;
 }
+.child{
+	font-size: 30px;
+	vertical-align: middle;
+	border: 1px solid blue;
+}
+.inline-block{
+	display: inline-block;
+	overflow: hidden;
+	border: 1px solid red;
+}
+.other{
+	border: 1px solid green;
+}
+

@@ -40,8 +40,8 @@
 	transform: rotateY(-60deg);
 }
  */
-
-#div1{
+/* 通过translateZ来理解perspective */
+/* #div1{
 	position: relative;
 	height: 150px;
 	width: 150px;
@@ -55,5 +55,23 @@
 	position: absolute;
 	border: 1px solid black;
 	background-color: red;
-	transform: rotateX(45deg);
+	transform: translateZ(100px);
+} */
+
+
+/* perspective两种书写方式的区别 */
+/* 1.第一种是将整个画布作为透视元素，所有距离不同的DIV具有不同的透视效果 */
+.stage_area{
+	margin: 0 auto;
+	margin-top: 200px;
+	background-color: #f0f0f0;
+	box-shadow: inset 0 0 3px rgba(0, 0, 0, .35);
+	display: flex;
+	width: 1200px;
+}
+.piece{
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+	transform: rotateY(45deg);
 }

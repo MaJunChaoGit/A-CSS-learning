@@ -61,7 +61,7 @@
 
 /* perspective两种书写方式的区别 */
 /* 1.第一种是将整个画布作为透视元素，所有距离不同的DIV具有不同的透视效果 */
-.stage_area{
+/* .stage_area{
 	margin: 0 auto;
 	margin-top: 200px;
 	background-color: #f0f0f0;
@@ -74,4 +74,28 @@
 	height: 100px;
 	margin: 20px;
 	transform: rotateY(45deg);
+} */
+
+
+div
+{
+	position:relative;
+	height:60px;
+	width:60px;
+	background-color:red;
+	transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg); /* Chrome and Safari */
+	-moz-transform:rotateY(180deg); /* Firefox */
+}
+#div1
+{
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+}
+#div2
+{
+	-webkit-backface-visibility:visible;
+	-moz-backface-visibility:visible;
+	-ms-backface-visibility:visible;
 }

@@ -1,0 +1,59 @@
+/* div{
+	width: 100px;
+	height: 75px;
+	background-color: red;
+	border: 1px solid black;
+} */
+/* div#div2{	 */
+	/* 横轴为X轴，竖轴Y轴，正面为Z轴*/
+	/* transform: rotateX(90deg);  顺时针旋转*/          
+	/* transform: rotateY(60deg);  逆时针旋转*/
+	/* transform: rotateZ(60deg);  顺时针旋转*/
+/* } */
+/* div#div2{	
+	transform-origin: left top;
+	transform: rotateZ(60deg);
+} */
+
+/* todo学习transform-style: preserve-3d; */
+/* #div1{
+	position: relative;
+	height: 200px;
+	width: 200px;
+	margin: 100px;
+	padding: 10px;
+	border: 1px solid black;
+}
+#div2{
+	padding: 50px;
+	position: absolute;
+	border: 1px solid black;
+	background-color: red;
+	transform: rotateY(60deg);
+	transform-style: preserve-3d;
+}
+#div3{
+	padding: 40px;
+	position: absolute;
+	border: 1px solid black;
+	background-color: yellow;
+	transform: rotateY(-60deg);
+}
+ */
+
+#div1{
+	position: relative;
+	height: 150px;
+	width: 150px;
+	margin: 50px;
+	padding: 10px;
+	border: 1px solid black;
+	perspective: 150px;
+}
+#div2{
+	padding: 50px;
+	position: absolute;
+	border: 1px solid black;
+	background-color: red;
+	transform: rotateX(45deg);
+}

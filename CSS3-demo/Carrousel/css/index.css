@@ -1,0 +1,23 @@
+.wrap{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: #ccc;
+	perspective: 800px;
+}
+.container{
+	transform-style: preserve-3d;
+}
+img{
+	position: absolute;
+	transform: ;
+}
+img:nth-child(1) { transform: rotateY(   0deg ) translateZ(195.939px); }
+img:nth-child(2) { transform: rotateY(  40deg ) translateZ(195.939px); }
+img:nth-child(3) { transform: rotateY(  80deg ) translateZ(195.939px); }
+img:nth-child(4) { transform: rotateY( 120deg ) translateZ(195.939px); }
+img:nth-child(5) { transform: rotateY( 160deg ) translateZ(195.939px); }
+img:nth-child(6) { transform: rotateY( 200deg ) translateZ(195.939px); }
+img:nth-child(7) { transform: rotateY( 240deg ) translateZ(195.939px); }
+img:nth-child(8) { transform: rotateY( 280deg ) translateZ(195.939px); }
+img:nth-child(9) { transform: rotateY( 320deg ) translateZ(195.939px); }

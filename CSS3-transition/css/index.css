@@ -8,7 +8,7 @@
 	width: 300px;
 } */
 
-.demo2{
+/* .demo2{
 	width: 100px;
 	height: 100px;
 	background-color: red;
@@ -18,4 +18,44 @@
 	width: 200px;
 	height: 200px;
 	transform: rotate(180deg);
+}
+ */
+/* .demo3{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	transition-duration: 2s;
+	transition-property: width;
+}
+.demo3:hover{
+	width: 200px;
+}
+ */
+/* div{
+	width:100px;
+	height:50px;
+	background:red;
+	color:white;
+	font-weight:bold;
+	transition:width 2s;
+}
+div:hover{
+	width: 300px;
+}
+#div1 {transition-timing-function: linear;}
+#div2 {transition-timing-function: ease;}
+#div3 {transition-timing-function: ease-in;}
+#div4 {transition-timing-function: ease-out;}
+#div5 {transition-timing-function: ease-in-out;} */
+
+.demo4{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	transition-duration: 2s;
+	transition-property: width;
+	transition-delay: 3s;
+}
+.demo4:hover{
+	width: 200px;
 }

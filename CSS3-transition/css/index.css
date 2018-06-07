@@ -1,0 +1,21 @@
+/* .demo1{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	transition: width 2s;
+}
+.demo1:hover{
+	width: 300px;
+} */
+
+.demo2{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	transition: width 2s,height 2s,transform 2s;
+}
+.demo2:hover{
+	width: 200px;
+	height: 200px;
+	transform: rotate(180deg);
+}

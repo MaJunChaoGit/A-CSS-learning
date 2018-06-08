@@ -71,10 +71,131 @@ animation-duration	规定动画完成一个周期所花费的秒或毫秒。默�
 } */
 
 
-animation-timing-function	规定动画的速度曲线。默认是 "ease"。	
+/* animation-timing-function	规定动画的速度曲线。默认是 "ease"。	 */
+/* .demo4 div{
+	width: 100px;
+	height: 50px;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	position: relative;
+	animation: demo4 5s;
+}
+.demo4 #div1{
+	animation-timing-function: linear;
+}
+.demo4 #div2{
+	animation-timing-function: ease;
+}
+.demo4 #div3{
+	animation-timing-function: ease-in;
+}
+.demo4 #div4{
+	animation-timing-function: ease-out;
+}
+.demo4 #div5{
+	animation-timing-function: ease-in-out;
+}
+@keyframes demo4{
+	from {
+		left: 0;
+	}
+	to{
+		left: 300px;
+	}
+} */
+/* animation-delay	规定动画何时开始。默认是 0。
+.demo5{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	position: relative;
+	animation: demo5 5s infinite;
+	animation-delay: 2s;
+}
+@keyframes demo5{
+	from {
+		left: 0;
+	}
+	to {
+		left: 300px;
+	}
+} */
+/* animation-iteration-count	规定动画被播放的次数。默认是 1。	 */
+/* .demo6{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	position: relative;
+	animation: demo6 2s 3;
+}
 
-animation-delay	规定动画何时开始。默认是 0。	
-animation-iteration-count	规定动画被播放的次数。默认是 1。	
-animation-direction	规定动画是否在下一周期逆向地播放。默认是 "normal"。	
-animation-play-state	规定动画是否正在运行或暂停。默认是 "running"。	
-animation-fill-mode 规定对象动画时间之外的状态。 
+@keyframes demo6{
+	from {
+		left: 0;
+	}
+	to {
+		left: 300px;
+	}
+} */
+/* animation-direction	规定动画是否在下一周期逆向地播放。默认是 "normal"。	 */
+/* .demo7{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	position: relative;
+	animation: demo7 2s 3;
+	animation-direction: alternate;
+}
+
+@keyframes demo7{
+	from {
+		left: 0;
+	}
+	to {
+		left: 300px;
+	}
+} */
+/* animation-play-state	规定动画是否正在运行或暂停。默认是 "running"。	 */
+/* .demo8{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	position: relative;
+	animation: demo8 2s 3;
+	animation-play-state: paused;
+}
+
+@keyframes demo8{
+	from {
+		left: 0;
+	}
+	to {
+		left: 300px;
+	}
+} */
+/* animation-fill-mode 规定对象动画时间之外的状态。  */
+/* .demo9{
+	width: 100px;
+	height: 100px;
+	background-color: green;
+	position: relative;
+	left: 100px;
+	animation: demo9 2s 3 5s;
+	animation-fill-mode : backwards ; 只有在设置延迟时候生效，功能是在延迟期间应用动画第一帧的效果
+	animation-fill-mode : forwards ; 动画结束后应用最后一帧的效果
+	animation-fill-mode : both ; 都应用
+	animation-fill-mode : none ; 都不应用
+}
+
+@keyframes demo9{
+	from {
+		left: 0;
+	}
+	to {
+		left: 300px;
+	}
+} */
+
+/* 完整写法 */
+/* animation: myfirst 5s linear 2s infinite alternate; */

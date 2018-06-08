@@ -1,0 +1,80 @@
+/* animation	所有动画属性的简写属性，除了 animation-play-state 属性。	
+
+animation-name	规定 @keyframes 动画的名称。	
+
+animation-duration	规定动画完成一个周期所花费的秒或毫秒。默认是 0。	*/
+
+/* .demo1{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	animation: demo1 5s;
+}
+@keyframes demo1{
+	from {
+		background: red;
+	}
+	to {
+		background-color: yellow;
+	}
+} */
+
+/* .demo2{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	animation: demo2 5s;
+}
+@keyframes demo2{
+	0% {
+		background-color: red;
+	}
+	25%{
+		background-color: green;
+	}
+	50%{
+		background-color: yellow;
+	}
+	100%{
+		background-color: green;
+	}
+} */
+
+/* .demo3{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	position: absolute;
+	animation: demo3 5s;
+}
+@keyframes demo3{
+	0% {
+		background-color: red;
+		left: 0;
+		top: 0;
+	}
+	25%{
+		background-color: green;
+		left: 200px;
+		top: 0;
+	}
+	50%{
+		background-color: yellow;
+		left: 200px;
+		top: 200px;
+	}
+	100%{
+		background-color: green;
+		left: 0;
+		top: 0;
+	}
+} */
+
+
+animation-timing-function	规定动画的速度曲线。默认是 "ease"。	
+
+animation-delay	规定动画何时开始。默认是 0。	
+animation-iteration-count	规定动画被播放的次数。默认是 1。	
+animation-direction	规定动画是否在下一周期逆向地播放。默认是 "normal"。	
+animation-play-state	规定动画是否正在运行或暂停。默认是 "running"。	
+animation-fill-mode 规定对象动画时间之外的状态。 

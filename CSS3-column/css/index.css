@@ -1,0 +1,55 @@
+
+/* .newspaper{
+	column-count: 3;
+	width: 100px;
+} */
+
+
+
+/* .newspaper{
+	column-count: 3;
+	column-gap: 40px;
+}
+ */
+/* .newspaper{
+	column-count: 3;
+	column-gap: 40px;
+	column-rule-style: solid;
+} */
+
+/* .newspaper{
+	column-count: 3;
+	column-gap: 40px;
+	column-rule-style: solid;
+	column-rule-width:5px;
+} */
+/* .newspaper{
+	column-count: 3;
+	column-gap: 40px;
+	column-rule-style: solid;
+	column-rule-width:5px;
+	column-rule-color: #ff0000;
+} */
+
+/* .newspaper{
+	column-count: 3;
+	column-gap: 40px;
+	column-rule: 1px solid red;
+} */
+
+/* .newspaper{
+	width: 300px;
+	column-count: 3;
+}
+h2{
+	column-span: 1;
+} */
+
+/* .newspaper{
+	column-width: 100px; //不可以和column-count共同使用
+} */
+
+.newspaper{
+	columns: 100px 5;
+	column-rule: 3px double red;
+}

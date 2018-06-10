@@ -1,0 +1,36 @@
+/* .demo1{
+	border: 2px solid #ccc;
+	padding: 10px 40px;
+	width: 300px;
+	resize: both;
+	overflow: auto;
+} */
+/* none	用户无法调整元素的尺寸。
+both	用户可调整元素的高度和宽度。
+horizontal	用户可调整元素的宽度。
+vertical	用户可调整元素的高度。 */
+
+
+/* .demo2{
+	margin: 20px;
+	width: 150px;
+	height: 70px;
+	padding: 10px;
+	border: 2px solid black;
+	outline: 2px solid red;
+	outline-offset: 15px;
+} */
+/* 轮廓与边框有两点不同：
+
+轮廓不占用空间
+轮廓可能是非矩形 */
+
+/* .demo3{
+	appearance:none; /* Safari and Chrome */ */
+/* 
+icon	为创作者提供使用图标化等价物来设置元素样式的能力。	
+nav-down	规定在使用 arrow-down 导航键时向何处导航。	
+nav-index	设置元素的 tab 键控制次序。	
+nav-left	规定在使用 arrow-left 导航键时向何处导航。	
+nav-right	规定在使用 arrow-right 导航键时向何处导航。	
+nav-up	规定在使用 arrow-up 导航键时向何处导航。 */

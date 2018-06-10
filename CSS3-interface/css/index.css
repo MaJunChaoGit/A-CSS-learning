@@ -26,7 +26,7 @@ vertical	用户可调整元素的高度。 */
 轮廓可能是非矩形 */
 
 /* .demo3{
-	appearance:none; /* Safari and Chrome */ */
+	appearance:none; /* Safari and Chrome */ 
 /* 
 icon	为创作者提供使用图标化等价物来设置元素样式的能力。	
 nav-down	规定在使用 arrow-down 导航键时向何处导航。	
@@ -34,3 +34,17 @@ nav-index	设置元素的 tab 键控制次序。
 nav-left	规定在使用 arrow-left 导航键时向何处导航。	
 nav-right	规定在使用 arrow-right 导航键时向何处导航。	
 nav-up	规定在使用 arrow-up 导航键时向何处导航。 */
+
+
+/* 重头戏box-sizing */
+
+/* 1.border-box; */
+/* 使用后设置CSS的宽度时，更一幕了然 */
+
+.demo4{
+	position: relative;
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	border: 5px solid green;
+}

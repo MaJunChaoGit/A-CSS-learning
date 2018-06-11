@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<!-- <img src="image/paris.jpg" alt="" class="demo1"> -->
+
+	<!-- <a href="" class="demo2"><img src="image/paris.jpg" alt=""></a> -->
+
+	<!-- <img src="image/trolltunga.jpg" alt="" class="demo3"> -->
+
+	<!-- <div class="demo4">
+		<img src="image/trolltunga.jpg" alt="">
+		<div>一些文本</div>
+	</div> -->
+	<!-- <div class="demo5">
+		<img src="image/rock600x400.jpg" alt="">
+		<div>The Troll's tongue in Hardanger, Norway</div>
+	</div> -->
+
+	<!-- <div class="demo6">
+		<img src="image/img_fjords.jpg" alt="">
+		<div>
+			<p>Add a description of the image here</p>
+		</div>
+	</div>
+	<div class="demo6">
+		<img src="image/img_forest.jpg" alt="">
+		<div>
+			<p>Add a description of the image here</p>
+		</div>
+	</div>
+	<div class="demo6">
+		<img src="image/img_lights.jpg" alt="">
+		<div>
+			<p>Add a description of the image here</p>
+		</div>
+	</div>
+	<div class="demo6">
+		<img src="image/img_mountains.jpg" alt="">
+		<div>
+			<p>Add a description of the image here</p>
+		</div>
+	</div> -->
+	<div class="demo7modal" id="modal">
+		<span id="close">X</span>
+		<img src="image/img_lights.jpg" alt="">
+		<div>Northern Lights, Norway</div>
+	</div>
+	<div class="demo7">
+		<img src="image/img_lights.jpg" alt="" id="demo7">
+	</div>
+	<script type="text/javascript">
+		var modal = document.getElementById('modal')
+		var img = document.getElementById('demo7')
+		var close = document.getElementById('close')
+		img.onclick =function(){
+			modal.style.display = 'block'
+		}
+		close.onclick =function(){
+			modal.style.display = 'none'
+		}
+	</script>
+</body>
+</html>

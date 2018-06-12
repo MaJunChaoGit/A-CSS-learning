@@ -1,0 +1,93 @@
+/* .button{
+	color: black;
+	text-align: center;
+	padding: 15px 32px;
+	border: none;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+	background: white;
+	transition-duration: 1s;
+} */
+/* .button2 {background-color: #008CBA;} 
+.button3 {background-color: #f44336;} 
+.button4 {background-color: #e7e7e7; color: black;} 
+.button5 {background-color: #555555;} 
+ */
+/* .button2 {font-size: 15px} 
+.button3 {font-size: 20px} 
+.button4 {font-size: 25px} 
+.button5 {font-size: 30px} 
+
+.button2 {border-radius: 4px;} 
+.button3 {border-radius: 8px;} 
+.button4 {border-radius: 12px;} 
+.button5 {border-radius: 15px;} 
+
+.button2 {border: 1px solid red} 
+.button3 {border: 1px solid green} 
+.button4 {border: 1px solid blue} 
+.button5 {border: 1px solid black} 
+
+.button:hover{
+	background-color: black;
+	color: white;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, .2)
+}
+.disabled{
+	cursor: not-allowed;
+} */
+
+/* .button{
+	color: black;
+	text-align: center;
+	padding: 15px 32px;
+	border: none;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+	background: green;
+	transition-duration: 1s;
+	width: 	100%;
+} */
+/* 
+.button{
+	color: white;
+	text-align: center;
+	padding: 15px 32px;
+	border: none;
+	text-decoration: none;
+	font-size: 16px;
+	cursor: pointer;
+	background: green;
+	transition-duration: 1s;
+	float: left;
+} */
+
+/* .button{
+	background-color: red;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	transition: 0.5s;
+	border: none;
+	width: 	200px;
+	border-radius: 10px;
+	vertical-align: middle;
+	height:50px;
+}
+.button span{
+	font-size: 22px;
+}
+.button span::after{
+	content: '>>';
+	position: absolute;
+	opacity: 0;
+	transition: all 1s;
+}
+.button:hover span::after{
+	opacity: 1;
+}
+.button:hover{
+	padding-right: 25px;
+} */

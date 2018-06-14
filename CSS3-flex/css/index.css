@@ -1,0 +1,45 @@
+.box{
+	display: flex;
+	background-color: #ddd;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 400px;
+}
+.box li {
+	width: 200px;
+	height: auto;
+	line-height: 200px;
+	vertical-align: middle;
+	margin: 5px;
+	text-align: center;
+	font-size: 100px;
+	color: white;
+	background-color: #ffd200;
+	list-style: none;
+}
+
+
+/* .box{
+	flex-direction: row;   row | row-reverse | column | column-reverse 
+}
+
+.box{
+	width: 800px;
+	flex-wrap: wrap-reverse; nowrap | wrap | wrap-reverse 
+} */
+
+/* .box{
+	height: 600px;
+	flex-flow: column wrap; 第一个参数为flex-direction ,第二个参数为flex-wrap
+} */
+
+/* .box{
+	justify-content: space-around; flex-start | flex-end | center| space-between | space-around
+
+} */
+
+/* .box{
+	flex-flow: row nowrap;
+	align-items: baseline; flex-start | flex-end | | center | stretch 如果项目高度设置为auto 那么自动填满当前交叉轴| baseline 将项目中内容的基线对齐
+} */

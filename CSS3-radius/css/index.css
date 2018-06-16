@@ -1,0 +1,42 @@
+.radius-test1{
+	width: 100px;
+	height: 100px;
+	border: 50px solid #cd0000;
+	border-radius: 50%;
+}
+.radius-test2{
+	width: 100px;
+	height: 200px;
+	border: 50px solid #cd0000;
+	border-radius: 50%;
+}
+.radius-test3{
+	width: 100px;
+	height: 200px;
+	border: 50px solid #cd0000;
+	border-radius: 300px;
+}
+/* 将border-radius:300px;还原成原来模样 */
+.radius-test3{
+	width: 100px;
+	height: 200px;
+	border: 50px solid #cd0000;
+	border-radius: 300px 300px 300px 300px/300px 300px 300px 300px;
+	/* border-radius: 
+	左上角水平圆角半径大小 
+	右上角水平圆角半径大小
+	右下角水平圆角半径大小 
+	左下角水平圆角半径大小
+	/
+	左上角垂直圆角半径大小
+	右上角垂直圆角半径大小
+	右下角垂直圆角半径大小
+	左下角垂直圆角半径大小; */
+}
+/* 大值特性和等比例特性 */
+.radius-test4{
+	width: 100px;
+	height: 200px;
+	border: 50px solid #cd0000;
+	border-radius: 200px/300px;
+}

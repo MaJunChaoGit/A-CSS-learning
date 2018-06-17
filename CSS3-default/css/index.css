@@ -1,0 +1,22 @@
+/* option:default{
+	color: red;
+} */
+
+/* :default{
+	transform: scale(1.5);
+} */
+
+/* option:default{
+	color: red;
+} */
+.wrapper{
+	display: block;
+	position: relative;
+	width: 150px;
+	height: 200px;
+	box-shadow:5px 5px 5px #ccc,-5px -5px 5px #ccc;
+	margin: auto;
+}
+input:default+label::after{
+	content: "推荐";
+}

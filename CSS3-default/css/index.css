@@ -14,9 +14,10 @@
 	position: relative;
 	width: 150px;
 	height: 200px;
-	box-shadow:5px 5px 5px #ccc,-5px -5px 5px #ccc;
+	box-shadow:2px 2px 5px #bbb,-2px -2px 5px #ddd;
+	border: 1px solid #ccc;
 	margin: auto;
 }
 input:default+label::after{
-	content: "推荐";
+	content: " (推荐)";
 }

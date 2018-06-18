@@ -1,0 +1,35 @@
+/* .demo1{
+	caret-color: red;
+	color: #ccc;
+} */
+
+/* div[contenteditable="true"]{
+	width: 120px;
+	border: 1px solid #ddd;
+	padding: 3px;
+	line-height: 20px;
+	color: #333;
+	caret-color: red;
+} */
+
+/* .demo3{
+	color: red;
+}
+.demo3::first-line{
+	color: #333;
+} */
+/* input,input::first-line{
+	color: #333;
+}
+@supports (-webkit-mask:none){
+	input{ color : red; }
+} */
+
+input{
+	color: #333;
+	caret-color: red;
+}
+@supports (-webkit-mask:none) and (not (caret-color: red)){
+	input{color: red;}
+	input::first-line{ color: red; }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<!-- 模拟input输入勿扰功能 -->
+<!-- 	<div class="container">
+		<div class="header">
+			<p>:focus-within伪类选择器与表单输入勿扰模式</p>
+		</div>
+		<div class="body">
+			<h3>完成你的购物订单</h3>
+			<form class="demo1">
+				<span>
+					<label for="">邮箱</label>*
+					<input type="text">
+				</span>
+				<span>
+					<label for="">手机号</label>*
+					<input type="text">
+				</span>
+				<span>
+					<label for="">您的款式</label>*
+					<input type="radio" value="男款">
+					<input type="radio" value="女款">
+				</span>
+				<span>
+					<label for="">购买数量</label>*
+					<input type="number" value="1">
+				</span>
+				<span>
+					<label for="">所在城市</label>*
+					<select name="city" id="city">
+						<option value="0" selected>请选择</option>
+						<option value="1" selected>南京</option>
+						<option value="2" selected>北京</option>
+						<option value="3" selected>上海</option>
+					</select>
+				</span>
+				<span>
+					<label for="">给商家留言</label>
+					<textarea cols="30" rows="10"></textarea>
+				</span>
+			</form>
+		</div>
+	</div> -->
+	<!-- 显示输入字符长度功能，但是textarea与label发生重叠 -->
+	<!-- <div class="textarea-x">
+		<textarea name="forFocus" id="forFocus" maxlength="250" rows="5"></textarea>
+		<label for="forFocus" class="textarea-count">0/250</label>
+	</div> -->
+	<!-- 使用父元素边框模拟textarea边框，但是textarea:focus时无法设置父div边框 -->
+	<!-- 	<div class="textarea-x">
+		<textarea></textarea>
+		<label for="" class="textarea-count">0/250</label>
+	</div> -->
+	<!-- 使用兄弟元素模拟边框 -->
+	<!-- <div class="textarea-x">
+		<textarea></textarea>
+		<div class="textarea"></div>
+		<label for="" class="textarea-count">0/250</label>
+	</div> -->
+
+	<!-- 使用focus:within可以很方便的对父级元素操作 -->
+	<!-- <div>
+		<div class="textarea-x">
+		<textarea></textarea>
+		<label for="" class="textarea-count">0/250</label>
+	</div> -->
+	<!-- 使用focus:within设计下拉列表显示 -->
+	<div class="bar">
+	    <div class="details">
+	        <a href="javascript:" class="summary">我的消息</a> 
+	        <div class="box">
+	            <a href="javascript:">我的回答<sup>12</sup></a>
+	            <a href="javascript:">我的私信</a>
+	            <a href="javascript:">未评价订单<sup>2</sup></a>
+	            <a href="javascript:">我的关注</a>
+	        </div>
+	    </div>
+	</div>
+</body>
+</html>

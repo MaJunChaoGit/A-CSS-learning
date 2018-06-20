@@ -1,0 +1,237 @@
+/* .container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+.header{
+	width: 100%;
+	height: 10%;
+	background-color: green;
+	text-align: center;
+}
+.header p {
+	font-size: 22px;
+	font-weight: 500;
+}
+.body{
+	height: auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.body h3{
+	display: block;
+}
+.demo1{
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+.demo1 div:first-of-type{
+	background-color: green;
+}
+.demo1 span{
+	margin-bottom: 20px;
+}
+.demo1{
+	transition: outline 2s;
+	outline: 2000px solid hsla(0, 0%, 100%, 0);
+	position: relative;
+	z-index: 1;
+}
+.demo1:focus-within{
+	outline: 2000px solid hsla(0, 0%, 100%, 1);
+} */
+
+
+
+
+/* .textarea-x{
+	max-width: 300px;
+	position: relative;
+}
+.textarea-count{
+	position: absolute;
+	font-size: 12px;
+	line-height: 20px;
+	bottom: 5px;
+	right: 10px;
+	color: #999;
+}
+.textarea-x > textarea{
+	display: block;
+	width: 100%;
+	padding: 7px 9px;
+	box-sizing: border-box;
+	border: 1px solid #d0d0d5;
+	border-radius: 4px;
+	background-color: #fff;
+	padding-bottom: 30px;
+	transition: border-color .2s;
+	outline: 0;
+	resize: none;
+}
+.textarea-x > textarea:focus{
+	border-color: #00a5e0;
+}
+ */
+
+
+/* .textarea-x{
+	max-width: 300px;
+	position: relative;
+	border: 1px solid #d0d0d5;
+	border-radius: 4px;
+	background-color: #fff;
+	padding: 5px;
+}
+.textarea-x label{
+	color: #999;
+	position: relative;
+	width: 100%;
+}
+.textarea-x > textarea{
+	width: 100%;
+	border: 0;
+	background-color: none;
+	resize: none;
+	outline: 0;
+	overflow: hidden;
+}
+ */
+
+/* .textarea-x {
+    position: relative;
+    box-sizing: border-box;
+    z-index: 0;
+    max-width: 300px;
+    border-radius: 4px;
+    padding: 1px 1px 24px 0;
+    overflow: hidden;
+}
+.textarea-x > textarea {
+    border: 0;
+    background: none;
+    outline: 0;
+    resize: none;
+    position: relative;
+    display: block;
+    padding: 7px 9px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.textarea-x > .textarea {
+    position: absolute;
+    border: 1px solid #d0d0d5;
+    border-radius: 4px;
+    background-color: #fff;
+    top: 0; bottom: 0; left: 0; right: 0;  
+    transition: border-color .2s;
+    z-index: -1;
+}
+.textarea-count{
+	position: absolute;
+	font-size: 12px;
+	line-height: 16px;
+	bottom: 5px;
+	right: 10px;
+	color: #999;
+}
+.textarea-x > :focus + .textarea {
+    border-color: #00a5e0;    
+} */
+
+/* .textarea-x{
+	max-width: 300px;
+	position: relative;
+	border: 1px solid #d0d0d5;
+	border-radius: 4px;
+	background-color: #fff;
+	padding: 5px;
+}
+.textarea-x label{
+	color: #999;
+	position: relative;
+	width: 100%;
+}
+.textarea-x > textarea{
+	width: 100%;
+	border: 0;
+	background-color: none;
+	resize: none;
+	outline: 0;
+	overflow: hidden;
+}
+.textarea-x:focus-within{
+	border-color: #00a5e0;   
+} */
+
+
+.bar {
+    background-color: #e3e4e5;
+    color: #888;
+    padding-left: 40px;
+}
+
+.box {
+    display: none;
+    position: absolute;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+.box a{
+	display: block;
+}
+
+
+.details:focus-within .summary,
+.summary:hover {
+    background-color: #fff;
+    box-shadow: inset 1px 0 #ddd, inset -1px 0 #ddd;
+}
+.details:focus-within .summary::after {
+    transform: rotate(180deg);
+}
+
+.details:focus-within .box {
+    display: block;
+}
+
+.summary {
+    display: inline-block;
+    padding: 5px 28px;
+    text-indent: -15px;
+    user-select: none;
+    outline: 0;
+    position: relative;
+    z-index: 1;
+}
+.summary::after {
+    content: '';
+    position: absolute;
+    width: 12px; height: 12px;
+    margin: 4px 0 0 .5ch;
+    background: url(./arrow-on.svg) no-repeat;
+    background-size: 100% 100%;
+    transition: transform .2s;
+}
+
+
+<div class="bar">
+	    <div class="details">
+	        <a href="javascript:" class="summary">我的消息</a> 
+	        <div class="box">
+	            <a href="javascript:">我的回答<sup>12</sup></a>
+	            <a href="javascript:">我的私信</a>
+	            <a href="javascript:">未评价订单<sup>2</sup></a>
+	            <a href="javascript:">我的关注</a>
+	        </div>
+	    </div>
+	</div>

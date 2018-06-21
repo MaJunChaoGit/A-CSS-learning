@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<img src="images/ps1.jpg" alt="" class="mask-image">
+	<!-- 有毛边
+	<svg>
+	    <defs>    
+	        <mask id="mask" maskContentUnits="objectBoundingBox">
+	            <ellipse cx=".5" cy=".5" rx=".4" ry=".2" fill="white"></ellipse>
+	            <rect x=".3" y=".1" width=".4" height=".8" rx=".1" ry=".1" fill="white"></rect>
+	        </mask>
+	    </defs>    
+	</svg> -->
+	<!-- 羽化处理 -->
+	<svg>
+	    <defs>    
+	        <mask id="mask" maskContentUnits="objectBoundingBox">
+	            <!-- 柔化边缘 -->
+	            <ellipse cx=".5" cy=".5" rx=".48" ry=".28" fill="black"></ellipse>
+	            <rect x=".2" y="0" width=".6" height="1" rx=".1" ry=".1" fill="black"></rect>
+	            <!-- 主体遮罩 -->
+	            <ellipse cx=".5" cy=".5" rx=".4" ry=".2" fill="white"></ellipse>
+	            <rect x=".3" y=".1" width=".4" height=".8" rx=".1" ry=".1" fill="white"></rect>
+	        </mask>
+	    </defs>    
+	</svg>
+</body>
+</html>

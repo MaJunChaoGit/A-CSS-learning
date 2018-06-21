@@ -1,0 +1,14 @@
+/* .mask-image{
+    width: 250px; height: 187.5px;
+    -webkit-mask-image: url('../images/loading.png');
+} */
+
+/* 仅firefox支持任意元素的MASK */
+.mask-image{
+    -webkit-mask-image: url(#mask);
+}
+svg{
+	width: 0;
+	height: 0;
+	position: absolute;
+}

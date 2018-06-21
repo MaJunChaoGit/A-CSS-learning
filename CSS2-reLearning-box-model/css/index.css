@@ -1,22 +1,22 @@
-/* .defined-wh{
+.defined-wh{
 	width: 	100px;
 	height: 50px;
 	border: 1px solid red;
 	background-color: yellow;
-} */
+}
 
-/* .broken{
+.broken{
 	border: 1px solid red;
 	background-color: yellow;
-} */
-/* .existed{
+}
+.existed{
 	margin: 20px;
 	padding: 20px;
 	border: 1px solid red;
 	background-color: yellow;
 	background-clip: content-box;
-} */
-
+}
+/* 
 .parent{
 	line-height: 1;
 	font-size: 14px;
@@ -35,4 +35,4 @@
 .other{
 	border: 1px solid green;
 }
-
+ */

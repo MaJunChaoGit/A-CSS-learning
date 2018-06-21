@@ -1,0 +1,104 @@
+/* 绘制普通径向渐变 */
+/* .radial-gradient{
+	width: 400px;
+	height: 200px;
+	background: radial-gradient(yellow,red);
+} */
+/* 绘制圆形径向渐变 */
+/* .radial-gradient{
+	width: 400px;
+	height: 200px;
+	background: radial-gradient(circle,yellow,red);
+} */
+/* .radial-gradient {
+	width: 400px;
+	height: 200px;
+	background: radial-gradient(223.6px circle ,yellow, red); Math.sqrt(200*200+400*400) = 223.6
+}
+ */
+/* 制定渐变起始点位 */
+/* .radial-gradient{
+	width: 400px;
+	height: 200px;
+	background: radial-gradient(circle at 50px 50px, yellow, red);
+} */
+/* 制定渐变终止点位置 */
+/* .radial-gradient{
+	width: 400px;
+	height: 200px;
+	background: radial-gradient(closest-side circle at 50px 50px,yellow ,red); 渐变中心距离容器最近的边最为终止位置
+	background: radial-gradient(closest-corner circle at 50px 50px,yellow ,red); 渐变中心距离容器最近的角最为终止位置
+	background: radial-gradient(farthest-side circle at 50px 50px,yellow ,red); 渐变中心距离容器最远的边最为终止位置
+	background: radial-gradient(farthest-corner circle at 50px 50px,yellow ,red); 渐变中心距离容器最远的角最为终止位置
+} */
+/* 制定渐变颜色断点,如果不设置断点值,这些颜色会均匀分配0%~100%的渐变区域 */
+/* .radial-gradient{
+	width: 200px;
+	height: 200px;
+	border: 1px solid silver;
+	background: radial-gradient(closest-side circle,yellow, orange, red ,white); 
+} */
+/* 椭圆类型的径向渐变 */
+/* .radial-gradient {
+	width: 200px;
+	height: 200px;
+	background: radial-gradient(50px 100px ellipse, transparent 40px, yellow 41px ,red);
+} */
+
+/* 可累加的径向渐变背景 */
+/* .radial-gradient {
+	width: 200px;
+	height: 200px;
+	background: radial-gradient(50px 100px ellipse, transparent 40px ,yellow 41px ,red 49px ,transparent 50px),
+	radial-gradient(30px circle, red, red 29px,transparent 30px);
+} */
+/* 渐变背景的尺寸控制 */
+/* .radial-gradient {
+	width: 200px; height: 200px;
+    background: radial-gradient(5px 10px ellipse, transparent 4px, yellow 5px, red 6px, transparent 7px),
+                radial-gradient(3px circle, red, red 3px, transparent 4px);
+    background-size: 25px;
+} */
+
+/* 水波纹效果 */
+/* .radial-gradient {
+	width: 200px;
+	height: 100px;
+	background: red;
+	position: relative;
+}
+.radial-gradient::after{
+	content: '';
+	position: absolute;
+	height: 10px;
+	left: 0;
+	right: 0;
+	bottom: -10px;
+	background: radial-gradient(20px 15px ellipse at top, red 10px, transparent 11px);
+	background-size: 20px 10px;
+} */
+
+/* 可重复的径向渐变 */
+.radial-gradient {
+	position: relative;
+	width: 262px;
+	height: 262px;
+	/* border-radius: 50%; */
+	background: linear-gradient(30deg, transparent 40%, rgba(42, 41, 40, .85) 40%) no-repeat 100% 0;
+
+	/* background-size: 50% 100%, 100% 50%, 100% 100%; */
+}
+
+/* .radial-gradient::after{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -35px;
+	border: solid 1px #d9a388;
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 4px #da5b33, inset 0 0 0 27px #da5b33;
+	background: #b5ac9a;
+	content: "";
+} */

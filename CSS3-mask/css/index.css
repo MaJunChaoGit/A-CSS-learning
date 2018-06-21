@@ -4,11 +4,44 @@
 } */
 
 /* 仅firefox支持任意元素的MASK */
-.mask-image{
+/* .mask-image{
     -webkit-mask-image: url(#mask);
 }
+
 svg{
+
 	width: 0;
 	height: 0;
 	position: absolute;
+} */
+
+/* 内联MASK浏览器都是支持的 */
+/* .mask-image {
+	width: 250px;
+	height: 187.5px;
+	-webkit-mask-image: url(#mask);
+	mask: url('#mask');
+}
+ */
+/* 在像素比一倍时使用loading.png，二倍时使用star.svg */
+/* .mask-image{
+	width: 250px;
+	height: 187.5px;
+	-webkit-mask-image: -webkit-image-set(url('../images/loading.png') 1px,url('../images/star.svg') 2x);
+} */
+/* 表示遮罩元素50%透明度 */
+/* .mask-image {
+    width: 250px; height: 187.5px;
+    -webkit-mask-image: -webkit-cross-fade(url(loading.png), url(star.svg), 50%);
+    mask-image: cross-fade(url(loading.png), url(star.svg), 50%);
+} */
+
+/* 使用元素作为这招目前仅有ff支持，且需要加前缀 */
+#title {
+    width: -moz-fit-content;
+    width: fit-content;
+}
+.mask-image {
+    width: 250px; height: 187.5px;
+    -webkit-mask-image: -webkit-element(#title);
 }

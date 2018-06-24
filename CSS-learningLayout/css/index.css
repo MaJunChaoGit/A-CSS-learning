@@ -1,0 +1,139 @@
+/* 左边固定右边自适应 */
+/* {
+	.elem{
+		border: 3px solid #6ac5ac;
+		position: relative;
+	}
+	.elem-pink{
+		border-color: #d64078;
+	}
+	.elem-orange{
+		border-color: #fdc72f;
+	}
+	.elem-green{
+		border-color: #96c02e;
+	}
+	.label,.endlabel{
+		position: absolute;
+		background-color: #6ac5ac;
+		color: #414142;
+		line-height: 1em;
+	}
+	.label{
+		top: 0;
+		left: 0;
+		padding: 0 3px 3px 0;
+	}
+	.endlabel{
+		bottom: 0;
+		right: 0;
+		padding: 3px 0 0 3px;
+	}
+	.container{
+		position: relative;
+	}
+	nav.elem{
+		position: absolute;
+		width: 200px;
+		left: 0;
+	}
+	section.elem{
+		margin-left: 200px;
+	}
+	footer.elem{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		height: 70px;
+		background-color: white;
+		width: 100%;
+	}
+	body{
+		margin-bottom: 120px;
+	}
+	*{
+		box-sizing: border-box;
+	}
+	nav .label,nav .endlabel{
+		background-color: #d64078;
+	}
+	footer .label,footer .endlabel{
+		background-color: #96c02e;
+	}
+	section .label,section .endlabel{
+		background-color: #fdc72f;
+	}
+} */
+.elem{
+	border: 3px solid #6ac5ac;
+	position: relative;
+}
+.elem-pink{
+	border-color: #d64078;
+}
+.elem-orange{
+	border-color: #fdc72f;
+}
+.elem-green{
+	border-color: #96c02e;
+}
+.label,.endlabel{
+	position: absolute;
+	background-color: #6ac5ac;
+	color: #414142;
+	line-height: 1em;
+}
+.label{
+	top: 0;
+	left: 0;
+	padding: 0 3px 3px 0;
+}
+.endlabel{
+	bottom: 0;
+	right: 0;
+	padding: 3px 0 0 3px;
+}
+code{
+	background-color: #eee;
+}
+.clearfix{
+	overflow: auto;
+}
+*{
+	box-sizing: border-box;
+}
+/* float实现文字环绕图片布局 */
+/* .container{
+	margin: auto;
+	width: 500px;
+}
+img{
+	float: right;
+	margin: 0 0 1em 1em;
+}
+p.text{
+	background-color: #eee;
+} */
+
+/* 清除浮动练习 */
+/* section .label,section .endlabel{
+	background-color: #fdc72f;
+}
+.box{
+	float: left;
+	width: 200px;
+	height: 100px;
+	margin: 1em;
+}
+.after-box{
+	clear: left;
+} */
+/* 处理浮动中图片位置超过div容器大小 */
+.container{
+	max-width: 600px;
+	margin: 1em auto;
+}
+img{
+	float: right;
+	max-width: 100%;
+}

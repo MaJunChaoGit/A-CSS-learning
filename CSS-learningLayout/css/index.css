@@ -93,11 +93,23 @@
 	right: 0;
 	padding: 3px 0 0 3px;
 }
+nav .label,nav .endlabel{
+	background-color: #d64078;
+}
+section .label,section .endlabel{
+	background-color: #fdc72f;
+}
 code{
 	background-color: #eee;
 }
+.elem p {
+    padding: 0 1em;
+}
+p {
+    margin: 1em 0;
+}
 .clearfix{
-	overflow: auto;
+	overflow: hidden;
 }
 *{
 	box-sizing: border-box;
@@ -129,11 +141,142 @@ p.text{
 	clear: left;
 } */
 /* 处理浮动中图片位置超过div容器大小 */
-.container{
+/* .container{
 	max-width: 600px;
 	margin: 1em auto;
 }
 img{
 	float: right;
 	max-width: 100%;
+} */
+/* 浮动布局实现左边固定，右边自适应布局 */
+/* nav.elem{
+	float: left;
+	width: 200px;
 }
+section.elem{
+	margin-left: 200px;
+}
+nav .label,nav .endlabel{
+	background-color: #d64078;
+}
+section .label,section .endlabel{
+	background-color: #fdc72f;
+}
+
+ */
+/* 使用百分比宽度实现图片自适应 */
+/* article.elem{
+	width: 600px;
+	margin: auto;
+}
+article .label,article .endlabel{
+	background-color: #fdc72f;
+}
+article img{
+	float: right;
+	width: 50%;
+	max-width: 100%;
+} */
+/* 使用百分比宽度来实现nav布局 */
+/* nav {
+	width: 25%;
+	float: left;
+}
+section{
+	margin-left: 25%;
+} */
+/* 使用媒体查询来实现自适应 */
+/* @media screen and (min-width: 600px){
+	nav{
+		float: left;
+		width: 25%;
+	}
+	section {
+		margin-left: 25%
+	}
+}
+
+@media screen  and (max-width: 599px){
+	nav li {
+		display: inline-block;
+	}
+} */
+
+/* 使用float实现自适应盒子 */
+/* .box{
+	float: left;
+	width: 200px;
+	height: 100px;
+	margin: 1em;
+}
+.after-box{
+	clear: left;
+}
+.after-box .label,.after-box .endlabel{
+	background-color: #fdc72f;
+} */
+/* 使用inline-bloc实现自适应 */
+/* .box{
+	display: inline-block;
+	width: 200px;
+	height: 100px;
+	margin: 1em;
+}
+.after-box .label,.after-box .endlabel{
+	background-color: #fdc72f;
+}
+ */
+/* 使用inline-block实现自适应布局 */
+/* nav{
+	display: inline-block;
+	width: 25%;
+}
+.column{
+	display: inline-block;
+	width: 74%;
+	vertical-align: top;
+}
+.column>.label,.column >.endlabel{
+	background-color: #d64078;
+	vertical-align: top;
+} */
+/* 使用column来实现文字布局 */
+/* .three-column{
+	padding: 1em;
+	margin: auto;
+	width: 600px;
+	column-count: 3;
+	column-gap: 1em;
+} */
+/* 使用flex进行布局 */
+/* .container{
+	display: flex;
+}
+nav{
+	width: 200px;
+}
+.flex{
+	flex: 1;
+} */
+/* 使用flex属性进行弹性盒子列比例控制 */
+/* .container .label,.container .endlabel{
+	background-color: #fdc72f;
+}
+.container{
+	display: flex;
+}
+.initial{
+	width: 200px;
+	min-width: 100px;
+}
+.none{
+	width: 200px;
+	flex: none;
+}
+.flex1{
+	flex: 1;
+}
+.flex2{
+	flex: 2;
+} */

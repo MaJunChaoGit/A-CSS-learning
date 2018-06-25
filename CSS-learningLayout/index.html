@@ -57,6 +57,7 @@
 			<span class="endlabel">&lt;footer&gt;</span>
 		</footer>
 	</div> -->
+
 	<!-- float实现文字环绕 -->
 	<!-- <div class="container">
 		<img src="images/ilta.png" alt="">
@@ -64,6 +65,7 @@
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.
 		</p>	
 	</div> -->
+
 	<!-- 清除浮动比较 -->
 	<!-- <div class="box elem">
 		<span class="label">
@@ -116,5 +118,160 @@
 			</p>
 		</div>
 	</div> -->
+	<!-- 利用float实现右边自适应，左边固定布局 -->
+	<!-- <div class="container elem">
+		<span class="label">
+			&lt;div class="clearfix"&gt;
+		</span>
+		<nav class="elem elem-pink">
+			<span class="label">&lt;nav&gt;</span>
+				<ul>
+					<li><a href="">Home</a></li>
+					<li><a href="">Taco Menu</a></li>
+					<li><a href="">Draft List</a></li>
+					<li><a href="">Hours</a></li>
+					<li><a href="">Directions</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+			<span class="endlabel">&lt;/nav&gt;</span>
+		</nav>
+		<section class="elem elem-orange">
+			<span class="label">&lt;section&gt;</span>
+			<p>这个例子和之前那个外观一模一样。请注意我们在容器上做了“清除浮动”。原本在这个例子中是不需要的，但是当 nav 比非浮动的内容还要高时就需要了。</p>
+			<span class="endlabel">&lt;/section&gt;</span>
+		</section>
+		<section class="elem elem-orange">
+			<span class="label">&lt;section&gt;</span>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+			<span class="endlabel">&lt;/section&gt;</span>
+		</section>
+	</div> -->
+	<!-- 使用百分比宽度实现图片永远占容器的50% -->
+<!-- 	<article class="elem elem-orange clearfix">
+		<span class="label">&lt;article class="clearfix"&gt;</span>
+		<img src="images/ilta.png" alt="">
+		<p class="text ">你甚至还能同时使用 min-width 和 max-width 来限制图片的最大或最小宽度！</p>
+		<span class="endlabel">&lt;/article&gt;</span>
+	</article> -->
+	<!-- 使用百分比宽度来实现nav布局  -->
+	<!-- <div class="container elem">
+		<span class="label">&lt;div class="container"&gt;</span>
+		<nav class="elem elem-pink">
+			<span class="label">&lt;nav&gt;</span>
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">Taco Menu</a></li>
+				<li><a href="">Draft List</a></li>
+				<li><a href="">Hours</a></li>
+				<li><a href="">Directions</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+			<span class="endlabel">&lt;/nav&gt;</span>
+		</nav>
+		<section class="elem elem-orange">
+			<span class="label">&lt;section&gt;</span>
+			<p>当布局很窄时， nav 就会被挤扁。更糟糕的是，你不能在 nav 上使用 min-width 来修复这个问题，因为右边的那列是不会遵守它的。</p>
+			<span class="endlabel">&lt;/section&gt;</span>
+		</section>
+		<section class="elem elem-orange">
+			<span class="label">&lt;section&gt;</span>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+			<span class="endlabel">&lt;/section&gt;</span>
+		</section>
+	</div> -->
+	<!-- 使用float和inline-block实现多个box自适应 -->
+	<!-- <div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="box elem">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在浮动</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div>
+	<div class="after-box elem elem-orange">
+		<span class="label">&lt;div class="box"</span>
+		<p>我在使用 clear，所以我不会浮动到上面那堆盒子的旁边。</p>
+		<span class="endlbel">&lt;/div&gt;</span>
+	</div> -->
+	<!-- 使用inline-block实现自适应左右布局  如果HTML中有空格会导致列中间会有间隔-->
+<!-- 	<div class="container elem"><span class="label">&lt;div class="container"&gt;</span><nav class="elem elem-pink"><span class="label">&lt;nav&gt;</span><ul><li><a href="">Home</a></li><li><a href="">Taco Menu</a></li><li><a href="">Draft List</a></li><li><a href="">Hours</a></li><li><a href="">Directions</a></li><li><a href="">Contact</a></li></ul><span class="endlabel">&lt;/nav&gt;</span></nav><div class="column elem elem-pink"><span class="label">&lt;div class="column"&gt;</span><section class="elem elem-orange"><span class="label">&lt;section&gt;</span><p> Tara</p><span class="endlabel">&lt;/section&gt;</span></section><section class="elem elem-orange"><span class="label">&lt;section&gt;</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p><span class="endlabel">&lt;/section&gt;</span></section><span class="endlabel">&lt;/div&gt;</span></div></div> -->
+	<!-- 使用column实现文字多列布局 -->
+	<!-- <div class="three-column elem">
+		<span class="label">&lt;div class="three-column"&gt;</span>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+		<span class="endlabel">&lt;/div&gt;</span>
+	</div> -->
+	<!-- 使用弹性盒子布局 -->
+	<!-- 	<div class="container elem"><span class="label">&lt;div class="container"&gt;</span><nav class="elem elem-pink"><span class="label">&lt;nav&gt;</span><ul><li><a href="">Home</a></li><li><a href="">Taco Menu</a></li><li><a href="">Draft List</a></li><li><a href="">Hours</a></li><li><a href="">Directions</a></li><li><a href="">Contact</a></li></ul><span class="endlabel">&lt;/nav&gt;</span></nav><div class="flex elem elem-pink"><span class="label">&lt;div class="column"&gt;</span><section class="elem elem-orange"><span class="label">&lt;section&gt;</span><p> 弹性盒子好用</p><span class="endlabel">&lt;/section&gt;</span></section><section class="elem elem-orange"><span class="label">&lt;section&gt;</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p><span class="endlabel">&lt;/section&gt;</span></section><span class="endlabel">&lt;/div&gt;</span></div></div> -->
+	<!-- 使用弹性盒子进行列比例控制 -->
+	<div class="container elem">
+		<div class="initial elem elem-orange">
+			<span class="label">&lt;div class="initial"&gt;</span>
+			<p>空间足够的时候,我的宽度是200px,如果空间不足,我会变窄到100px,但是不会更窄了</p>
+			<span class="endlabel">&lt;/div&gt;</span>
+		</div>
+		<div class="none elem elem-orange">
+			<span class="label">&lt;div class="initial"&gt;</span>
+			<p>无论窗口如何变化,我的宽度一致时200px</p>
+			<span class="endlabel">&lt;/div&gt;</span>
+		</div>
+		<div class="flex1 elem elem-orange">
+			<span class="label">&lt;div class="initial"&gt;</span>
+			<p>我会占用1/3</p>
+			<span class="endlabel">&lt;/div&gt;</span>
+		</div>
+		<div class="flex2 elem elem-orange">
+			<span class="label">&lt;div class="initial"&gt;</span>
+			<p>我会占用2/3</p>
+			<span class="endlabel">&lt;/div&gt;</span>
+		</div>
+	</div>
 </body>
 </html>
